@@ -3,14 +3,14 @@ package com.comp.edufymediaplayerservice.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "placeholder")
-public class PlaceholderEntity implements PlaceholderEntityInterface {
+@Table(name = "placeholder2")
+public class PlaceholderEntity2 implements PlaceholderEntityInterface {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String artist;
-    private String album;
+    private String creator;
+    private String series;
     private String mediaName;
 
     public void setId(Long id) {
@@ -23,16 +23,17 @@ public class PlaceholderEntity implements PlaceholderEntityInterface {
 
     @Override
     public String getArtist() {
-        return artist;
+        return creator;
     }
 
     @Override
     public String getAlbum() {
-        return album;
+        return series;
     }
 
     @Override
     public String getMediaName() {
         return mediaName;
     }
+
 }

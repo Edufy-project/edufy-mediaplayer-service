@@ -1,5 +1,6 @@
 package com.comp.edufymediaplayerservice.controllers;
 
+import com.comp.edufymediaplayerservice.entities.PlaceholderEntityInterface;
 import com.comp.edufymediaplayerservice.services.MediaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +17,10 @@ public class PlaceholderMediaController {
         this.MEDIA_SERVICE = MEDIA_SERVICE;
     }
 
-    @GetMapping("/getmedia/{mediaId}")
-    public String getMediaEndpoint(@PathVariable Long mediaId) {
-        return MEDIA_SERVICE.getMedia(mediaId);
+    @GetMapping("/getmedia/{mediaType}/{mediaId}")
+    public String getMediaEndpoint(@PathVariable String mediaType, @PathVariable Long mediaId) {
+        PlaceholderEntityInterface media = MEDIA_SERVICE.getMediaById(mediaType, mediaId);
+        return MEDIA_SERVICE.getMediaEndpoint(media);
     }
 
 }
