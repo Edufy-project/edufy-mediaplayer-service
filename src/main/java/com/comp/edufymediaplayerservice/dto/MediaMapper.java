@@ -11,55 +11,69 @@ import java.util.stream.Collectors;
 
 public class MediaMapper {
 
-    // Music -> MediaDTO
-    public static MediaDTO toMediaDTO(Music music) {
+    // Helper-metod för gemensamma fält
+    private static MediaDTO mapCommonFields(String title, java.time.LocalDate releaseDate, String streamUrl,
+                                            Integer albumOrder, String albumTitle,
+                                            List<Artist> artists, List<Genre> genres) {
         MediaDTO dto = new MediaDTO();
-        dto.setTitle(music.getTitle());
-        dto.setReleaseDate(music.getReleaseDate());
-        dto.setStreamUrl(music.getStreamUrl());
-        dto.setAlbumTitle(music.getAlbum() != null ? music.getAlbum().getTitle() : null);
-        dto.setAlbumOrder(music.getAlbumOrder());
-        dto.setArtistNames(music.getArtists().stream()
+        dto.setTitle(title);
+        dto.setReleaseDate(releaseDate);
+        dto.setStreamUrl(streamUrl);
+        dto.setAlbumOrder(albumOrder);
+        dto.setAlbumTitle(albumTitle);
+        dto.setArtistNames(artists.stream()
                 .map(Artist::getName)
                 .collect(Collectors.toList()));
-        dto.setGenreNames(music.getGenres().stream()
+        dto.setGenreNames(genres.stream()
                 .map(Genre::getName)
                 .collect(Collectors.toList()));
         return dto;
+    }
+
+    // Music -> MediaDTO
+    public static MediaDTO toMediaDTO(Music music) {
+        return mapCommonFields(
+                music.getTitle(),
+                music.getReleaseDate(),
+                music.getStreamUrl(),
+                music.getAlbumOrder(),
+                music.getAlbum() != null ? music.getAlbum().getTitle() : null,
+                music.getArtists(),
+                music.getGenres()
+        );
     }
 
     // Pod -> MediaDTO
     public static MediaDTO toMediaDTO(Pod pod) {
-        MediaDTO dto = new MediaDTO();
-        dto.setTitle(pod.getTitle());
-        dto.setReleaseDate(pod.getReleaseDate());
-        dto.setStreamUrl(pod.getStreamUrl());
-        dto.setAlbumTitle(pod.getAlbum() != null ? pod.getAlbum().getTitle() : null);
-        dto.setAlbumOrder(pod.getAlbumOrder());
-        dto.setArtistNames(pod.getArtists().stream()
-                .map(Artist::getName)
-                .collect(Collectors.toList()));
-        dto.setGenreNames(pod.getGenres().stream()
-                .map(Genre::getName)
-                .collect(Collectors.toList()));
-        return dto;
+        return mapCommonFields(
+                pod.getTitle(),
+                pod.getReleaseDate(),
+                pod.getStreamUrl(),
+                pod.getAlbumOrder(),
+                pod.getAlbum() != null ? pod.getAlbum().getTitle() : null,
+                pod.getArtists(),
+                pod.getGenres()
+        );
     }
 
     // Video -> MediaDTO
     public static MediaDTO toMediaDTO(Video video) {
-        MediaDTO dto = new MediaDTO();
-        dto.setTitle(video.getTitle());
-        dto.setReleaseDate(video.getReleaseDate());
-        dto.setStreamUrl(video.getStreamUrl());
-        dto.setAlbumTitle(video.getAlbum() != null ? video.getAlbum().getTitle() : null);
-        dto.setAlbumOrder(video.getAlbumOrder());
-        dto.setArtistNames(video.getArtists().stream()
-                .map(Artist::getName)
-                .collect(Collectors.toList()));
-        dto.setGenreNames(video.getGenres().stream()
-                .map(Genre::getName)
-                .collect(Collectors.toList()));
-        return dto;
+        return mapCommonFields(
+                video.getTitle(),
+                video.getReleaseDate(),
+                video.getStreamUrl(),
+                video.getAlbumOrder(),
+                video.getAlbum() != null ? video.getAlbum().getTitle() : null,
+                video.getArtists(),
+                video.getGenres()
+        );
+    }
+
+    // List<Music> -> List<MediaDTO>
+    public static List<MediaDTO> toMediaDTOListFromMusic(List<Music> musicList) {
+        return musicList.stream()
+                .map(MediaMapper::toMediaDTO)
+                .collect(Collectors.toList());
     }
 
     // List<Pod> -> List<MediaDTO>
