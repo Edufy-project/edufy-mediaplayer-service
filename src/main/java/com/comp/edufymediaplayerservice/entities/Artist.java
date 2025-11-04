@@ -1,4 +1,4 @@
-package entity;
+package com.comp.edufymediaplayerservice.entities;
 
 import jakarta.persistence.*;
 import java.util.ArrayList;

@@ -1,9 +1,7 @@
-package repository;
+package com.comp.edufymediaplayerservice.repositories;
 
-import entity.Album;
-import entity.Artist;
-import entity.Genre;
-import entity.Video;
+import com.comp.edufymediaplayerservice.entities.Album;
+import com.comp.edufymediaplayerservice.entities.Video;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
