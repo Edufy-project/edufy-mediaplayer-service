@@ -1,12 +1,12 @@
-package entity;
+package com.comp.edufymediaplayerservice.entity;
 
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "genres")
-public class Genre {
+@Table(name = "artists")
+public class Artist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,19 +15,25 @@ public class Genre {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToMany(mappedBy = "genres")
+    @Column(length = 1000)
+    private String bio;
+
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    @ManyToMany(mappedBy = "artists")
     private List<Music> musicList = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "genres")
+    @ManyToMany(mappedBy = "artists")
     private List<Pod> podList = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "genres")
+    @ManyToMany(mappedBy = "artists")
     private List<Video> videoList = new ArrayList<>();
 
-    public Genre() {
+    public Artist() {
     }
 
-    public Genre(String name) {
+    public Artist(String name) {
         this.name = name;
     }
 
@@ -46,6 +52,22 @@ public class Genre {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public List<Music> getMusicList() {

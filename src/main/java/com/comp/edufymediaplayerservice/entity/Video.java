@@ -1,4 +1,4 @@
-package entity;
+package com.comp.edufymediaplayerservice.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
