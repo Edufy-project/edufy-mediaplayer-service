@@ -29,7 +29,11 @@ public class MediaController {
     @GetMapping("artist/{artistName}")
     public Object getArtistByName(@PathVariable String artistName){
         return mediaService.getArtistByName(artistName);
-
     }
 
+    @GetMapping("likemedia/{mediaName}")
+    public void likeMediaByName(@PathVariable String mediaName){
+        return mediaService.likeMediaByName(mediaName);
+    }
+    
 }
