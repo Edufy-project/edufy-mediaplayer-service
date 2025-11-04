@@ -12,60 +12,73 @@ import java.util.stream.Collectors;
 public class MediaMapper {
 
     // Helper-metod för gemensamma fält
-    private static MediaDTO mapCommonFields(String title, java.time.LocalDate releaseDate, String streamUrl,
-                                            Integer albumOrder, String albumTitle,
-                                            List<Artist> artists, List<Genre> genres) {
+    private static MediaDTO mapCommonFields(Long id,String title, java.time.LocalDate releaseDate, String streamUrl,
+                                            Integer albumOrder, java.time.LocalDateTime createdAt, String albumTitle,
+                                            List<Artist> artists, List<Genre> genres, String type ) {
         MediaDTO dto = new MediaDTO();
+        dto.setId(id);
         dto.setTitle(title);
         dto.setReleaseDate(releaseDate);
         dto.setStreamUrl(streamUrl);
         dto.setAlbumOrder(albumOrder);
+        dto.setCreatedAt(createdAt);
         dto.setAlbumTitle(albumTitle);
+        dto.setType(type);
         dto.setArtistNames(artists.stream()
                 .map(Artist::getName)
                 .collect(Collectors.toList()));
         dto.setGenreNames(genres.stream()
                 .map(Genre::getName)
                 .collect(Collectors.toList()));
+
         return dto;
     }
 
     // Music -> MediaDTO
     public static MediaDTO toMediaDTO(Music music) {
         return mapCommonFields(
+                music.getId(),
                 music.getTitle(),
                 music.getReleaseDate(),
                 music.getStreamUrl(),
                 music.getAlbumOrder(),
+                music.getCreatedAt(),
                 music.getAlbum() != null ? music.getAlbum().getTitle() : null,
                 music.getArtists(),
-                music.getGenres()
+                music.getGenres(),
+                "MUSIC"
         );
     }
 
     // Pod -> MediaDTO
     public static MediaDTO toMediaDTO(Pod pod) {
         return mapCommonFields(
+                pod.getId(),
                 pod.getTitle(),
                 pod.getReleaseDate(),
                 pod.getStreamUrl(),
                 pod.getAlbumOrder(),
+                pod.getCreatedAt(),
                 pod.getAlbum() != null ? pod.getAlbum().getTitle() : null,
                 pod.getArtists(),
-                pod.getGenres()
+                pod.getGenres(),
+                "POD"
         );
     }
 
     // Video -> MediaDTO
     public static MediaDTO toMediaDTO(Video video) {
         return mapCommonFields(
+                video.getId(),
                 video.getTitle(),
                 video.getReleaseDate(),
                 video.getStreamUrl(),
                 video.getAlbumOrder(),
+                video.getCreatedAt(),
                 video.getAlbum() != null ? video.getAlbum().getTitle() : null,
                 video.getArtists(),
-                video.getGenres()
+                video.getGenres(),
+                "VIDEO"
         );
     }
 

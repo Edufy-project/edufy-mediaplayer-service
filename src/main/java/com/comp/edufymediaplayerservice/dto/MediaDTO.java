@@ -8,7 +8,7 @@ public class MediaDTO {
 
     private Long id;
     private String title;
-    private String type; // "MUSIC", "POD", "VIDEO"
+    private String type; //TODO "MUSIC", "POD", "VIDEO"
     private LocalDate releaseDate;
     private String streamUrl;
     private Integer albumOrder;
