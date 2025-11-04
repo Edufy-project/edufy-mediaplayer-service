@@ -34,7 +34,7 @@ public class MediaService {
         return null;
     }
 
-    public String getMediaEndpoint(PlaceholderEntityInterface media) {
+    /*public String getMediaEndpoint(PlaceholderEntityInterface media) {
         String artist = media.getArtist().toLowerCase().replace(" ", "_");
         String album = media.getAlbum().toLowerCase().replace(" ", "_");
         String name = media.getMediaName().toLowerCase().replace(" ", "_");
@@ -60,6 +60,6 @@ public class MediaService {
         } else {
             throw new RuntimeException("Invalid type. Valid types are: type1, type2");
         }
-    }
+    }*/
 
 }
