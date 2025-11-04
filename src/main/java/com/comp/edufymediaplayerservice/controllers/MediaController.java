@@ -12,8 +12,8 @@ public class MediaController {
 
     private final MediaService mediaService;
 
-    public MediaController(MediaService mediaplayerService){
-        this.mediaService = mediaplayerService;
+    public MediaController(MediaService mediaService){
+        this.mediaService = mediaService;
     }
 
     @GetMapping("media/{mediaName}")
