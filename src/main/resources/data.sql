@@ -1,5 +1,5 @@
-insert into placeholder (media_name, album, artist) values ('Media 1', 'Album 1', 'Artist 1');
-insert into placeholder (media_name, album, artist) values ('Media 2', 'Album 1', 'Artist 1');
-insert into placeholder (media_name, album, artist) values ('Media 3', 'Album 1', 'Artist 1');
+insert into albums (title, release_date, cover_image_url) values ('Test album', '2025-01-01',  'cover_images/image1.jpg');
 
-insert into placeholder2 (media_name, series, creator) values ('Media 1.2', 'Series 1.2', 'Creator 1.2');
+insert into artists (name, bio, image_url) values ('Test Testsson', 'Test bio. Very cool!',  'artist_images/testsson1.jpg');
+
+insert into pods (title, release_date, stream_url, album_id, album_order, created_at) values ('Test pod 1', '2025-01-01', 'pods/test_pod1.mp3', 1, 1, '2025-01-01');
