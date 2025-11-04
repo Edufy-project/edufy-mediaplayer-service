@@ -22,6 +22,18 @@ public class MediaService {
         this.PLACEHOLDER_REPOSITORY2 = placeholderRepository2;
     }
 
+    public Object getMediaByName(String mediaName) {
+        return null;
+    }
+
+    public Object getAlbumByName(String albumName) {
+        return null;
+    }
+
+    public Object getArtistByName(String artistName) {
+        return null;
+    }
+
     public String getMediaEndpoint(PlaceholderEntityInterface media) {
         String artist = media.getArtist().toLowerCase().replace(" ", "_");
         String album = media.getAlbum().toLowerCase().replace(" ", "_");
