@@ -1,10 +1,5 @@
 package com.comp.edufymediaplayerservice.services;
 
-import com.comp.edufymediaplayerservice.entities.PlaceholderEntity;
-import com.comp.edufymediaplayerservice.entities.PlaceholderEntity2;
-import com.comp.edufymediaplayerservice.entities.PlaceholderEntityInterface;
-import com.comp.edufymediaplayerservice.repositories.PlaceholderRepository;
-import com.comp.edufymediaplayerservice.repositories.PlaceholderRepository2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,14 +8,14 @@ import java.util.Optional;
 @Service
 public class MediaService {
 
-    private final PlaceholderRepository PLACEHOLDER_REPOSITORY;
-    private final PlaceholderRepository2 PLACEHOLDER_REPOSITORY2;
+    //private final PlaceholderRepository PLACEHOLDER_REPOSITORY;
+    //private final PlaceholderRepository2 PLACEHOLDER_REPOSITORY2;
 
-    @Autowired
+    /*@Autowired
     public MediaService(PlaceholderRepository placeholderRepository, PlaceholderRepository2 placeholderRepository2) {
         this.PLACEHOLDER_REPOSITORY = placeholderRepository;
         this.PLACEHOLDER_REPOSITORY2 = placeholderRepository2;
-    }
+    }*/
 
     public Object getMediaByName(String mediaName) {
         return null;

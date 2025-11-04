@@ -1,6 +1,5 @@
 package com.comp.edufymediaplayerservice.repositories;
 
-
 import com.comp.edufymediaplayerservice.entities.Artist;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
