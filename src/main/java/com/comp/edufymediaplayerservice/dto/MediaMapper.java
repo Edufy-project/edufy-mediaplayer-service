@@ -14,7 +14,7 @@ public class MediaMapper {
     // Helper-metod för gemensamma fält
     private static MediaDTO mapCommonFields(Long id,String title, java.time.LocalDate releaseDate, String streamUrl,
                                             Integer albumOrder, java.time.LocalDateTime createdAt, String albumTitle,
-                                            List<Artist> artists, List<Genre> genres, String type ) {
+                                            List<Artist> artists, List<Genre> genres, String type, Long playCount ) {
         MediaDTO dto = new MediaDTO();
         dto.setId(id);
         dto.setTitle(title);
@@ -30,6 +30,7 @@ public class MediaMapper {
         dto.setGenreNames(genres.stream()
                 .map(Genre::getName)
                 .collect(Collectors.toList()));
+        dto.setPlayCount(playCount);
 
         return dto;
     }
@@ -46,7 +47,8 @@ public class MediaMapper {
                 music.getAlbum() != null ? music.getAlbum().getTitle() : null,
                 music.getArtists(),
                 music.getGenres(),
-                "MUSIC"
+                "MUSIC",
+                music.getPlayCount()
         );
     }
 
@@ -62,7 +64,8 @@ public class MediaMapper {
                 pod.getAlbum() != null ? pod.getAlbum().getTitle() : null,
                 pod.getArtists(),
                 pod.getGenres(),
-                "POD"
+                "POD",
+                pod.getPlayCount()
         );
     }
 
@@ -78,7 +81,8 @@ public class MediaMapper {
                 video.getAlbum() != null ? video.getAlbum().getTitle() : null,
                 video.getArtists(),
                 video.getGenres(),
-                "VIDEO"
+                "VIDEO",
+                video.getPlayCount()
         );
     }
 

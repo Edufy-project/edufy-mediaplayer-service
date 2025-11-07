@@ -29,7 +29,6 @@ public class MediaController {
     @GetMapping("artist/{artistName}")
     public Object getArtistByName(@PathVariable String artistName){
         return mediaService.getArtistByName(artistName);
-
     }
 
 }

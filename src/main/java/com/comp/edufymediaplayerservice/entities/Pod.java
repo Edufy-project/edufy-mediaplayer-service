@@ -49,6 +49,9 @@ public class Pod {
     )
     private List<Genre> genres = new ArrayList<>();
 
+    @Column(name = "play_count")
+    private Long playCount = 0L;
+
     public Pod() {
         this.createdAt = LocalDateTime.now();
     }
@@ -151,5 +154,12 @@ public class Pod {
     public void removeGenre(Genre genre) {
         this.genres.remove(genre);
         genre.getPodList().remove(this);
+    }
+
+    public Long getPlayCount() {
+        return playCount;
+    }
+    public void setPlayCount(Long playCount) {
+        this.playCount = playCount;
     }
 }
