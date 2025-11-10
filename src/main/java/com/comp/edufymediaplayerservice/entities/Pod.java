@@ -23,6 +23,9 @@ public class Pod {
     @Column(name = "stream_url", nullable = false)
     private String streamUrl;
 
+    @Column
+    private String genre;
+
     @ManyToOne
     @JoinColumn(name = "album_id")
     private Album album;
@@ -90,6 +93,14 @@ public class Pod {
 
     public void setStreamUrl(String streamUrl) {
         this.streamUrl = streamUrl;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public Album getAlbum() {

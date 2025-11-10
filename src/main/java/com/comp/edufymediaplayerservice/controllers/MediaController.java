@@ -6,14 +6,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("edufy/api/mediaplayer/")
+@RequestMapping("api/edufy/mediaplayer/")
 public class MediaController {
 
     private final MediaService mediaService;
 
     public MediaController(MediaService mediaplayerService){
         this.mediaService = mediaplayerService;
+    }
+
+    @GetMapping("getgenre/{mediaType}/{mediaId}")
+    public String getMediaGenreById(@PathVariable String mediaType, @PathVariable Long mediaId) {
+        return mediaService.getMediaGenreById(mediaType, mediaId);
+    }
+
+    @GetMapping("getmedia/genre/{genre}")
+    public Object getMediaByGenre(@PathVariable String genre) {
+        return mediaService.getAllMediaByGenre(genre);
     }
 
     @GetMapping("media/{mediaName}")
@@ -29,7 +41,6 @@ public class MediaController {
     @GetMapping("artist/{artistName}")
     public Object getArtistByName(@PathVariable String artistName){
         return mediaService.getArtistByName(artistName);
-
     }
 
 }

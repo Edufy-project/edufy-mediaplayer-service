@@ -31,6 +31,52 @@ public class MediaService {
         this.videoRepository = videoRepository;
     }
 
+    public String getMediaGenreById(String mediaType, Long mediaId) {
+
+        if (mediaType.equalsIgnoreCase("music")) {
+            Optional<Music> optional = musicRepository.findById(mediaId);
+            if (optional.isPresent()) {
+                return optional.get().getGenre();
+            } else {
+                throw new RuntimeException("Music with id " + mediaId + " does not exist.");
+            }
+        } else if (mediaType.equalsIgnoreCase("pod")) {
+            Optional<Pod> optional = podRepository.findById(mediaId);
+            if (optional.isPresent()) {
+                return optional.get().getGenre();
+            } else {
+                throw new RuntimeException("Pod with id " + mediaId + " does not exist.");
+            }
+        } else if (mediaType.equalsIgnoreCase("video")) {
+            Optional<Video> optional = videoRepository.findById(mediaId);
+            if (optional.isPresent()) {
+                return optional.get().getGenre();
+            } else {
+                throw new RuntimeException("Video with id " + mediaId + " does not exist.");
+            }
+        } else {
+            throw new RuntimeException("Invalid type. Valid types are: type1, type2");
+        }
+
+    }
+
+    public Object getAllMediaByGenre(String genre) {
+        List<Music> musicToReturn = musicRepository.findAllByGenreIgnoreCase(genre);
+        List<Pod> podToReturn = podRepository.findAllByGenreIgnoreCase(genre);
+        List<Video> videoToReturn = videoRepository.findAllByGenreIgnoreCase(genre);
+
+        if (!musicToReturn.isEmpty()) {
+            return musicToReturn;
+        } else if (!podToReturn.isEmpty()) {
+            return podToReturn;
+        } else if (!videoToReturn.isEmpty()) {
+            return videoToReturn;
+        }
+
+        throw new RuntimeException("Media with the genre '" + genre + "' does not exist.");
+
+    }
+
     public Object getMediaByName(String mediaName) {
 
         if (mediaName.contains(" ")) {
