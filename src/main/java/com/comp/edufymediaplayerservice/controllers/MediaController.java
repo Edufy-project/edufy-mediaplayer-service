@@ -32,8 +32,8 @@ public class MediaController {
     }
 
     @GetMapping("likemedia/{mediaName}/{mediaId}")
-    public void likeMediaByName(@PathVariable String mediaName, @PathVariable Long mediaId){
-        return mediaService.likeMediaByName(mediaName, mediaId);
+    public void likeMediaByName(@PathVariable String mediaType, @PathVariable Long mediaId){
+        return mediaService.likeMedia(mediaType, mediaId);
     }
 
 }
