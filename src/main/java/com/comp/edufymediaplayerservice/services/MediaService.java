@@ -2,7 +2,6 @@ package com.comp.edufymediaplayerservice.services;
 
 import com.comp.edufymediaplayerservice.entities.*;
 import com.comp.edufymediaplayerservice.repositories.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +15,6 @@ public class MediaService {
     private final PodRepository podRepository;
     private final VideoRepository videoRepository;
 
-    @Autowired
     public MediaService(
             AlbumRepository albumRepository,
             ArtistRepository artistRepository,
@@ -97,33 +95,5 @@ public class MediaService {
 
         throw new RuntimeException("No artist with the name '" + artistName + "' was found.");
     }
-
-    /*public String getMediaEndpoint(PlaceholderEntityInterface media) {
-        String artist = media.getArtist().toLowerCase().replace(" ", "_");
-        String album = media.getAlbum().toLowerCase().replace(" ", "_");
-        String name = media.getMediaName().toLowerCase().replace(" ", "_");
-
-        return "/" + artist + "/" + album + "/" + name;
-    }
-
-    public PlaceholderEntityInterface getMediaById(String mediaType, Long mediaId) {
-        if (mediaType.equalsIgnoreCase("type1")) {
-            Optional<PlaceholderEntity> optional = PLACEHOLDER_REPOSITORY.findById(mediaId);
-            if (optional.isPresent()) {
-                return optional.get();
-            } else {
-                throw new RuntimeException("Media with id " + mediaId + " does not exist.");
-            }
-        } else if (mediaType.equalsIgnoreCase("type2")) {
-            Optional<PlaceholderEntity2> optional = PLACEHOLDER_REPOSITORY2.findById(mediaId);
-            if (optional.isPresent()) {
-                return optional.get();
-            } else {
-                throw new RuntimeException("Media with  id " + mediaId + " does not exist.");
-            }
-        } else {
-            throw new RuntimeException("Invalid type. Valid types are: type1, type2");
-        }
-    }*/
 
 }
