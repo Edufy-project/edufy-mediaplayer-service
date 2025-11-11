@@ -1,4 +1,4 @@
-package com.comp.edufymediaplayerservice.entity;
+package com.comp.edufymediaplayerservice.entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "music")
-public class Music {
+@Table(name = "videos")
+public class Video {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,31 +35,34 @@ public class Music {
 
     @ManyToMany
     @JoinTable(
-            name = "music_artists",
-            joinColumns = @JoinColumn(name = "music_id"),
+            name = "video_artists",
+            joinColumns = @JoinColumn(name = "video_id"),
             inverseJoinColumns = @JoinColumn(name = "artist_id")
     )
     private List<Artist> artists = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
-            name = "music_genres",
-            joinColumns = @JoinColumn(name = "music_id"),
+            name = "video_genres",
+            joinColumns = @JoinColumn(name = "video_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
     private List<Genre> genres = new ArrayList<>();
 
-    public Music() {
+    @Column(name = "play_count")
+    private Long playCount = 0L;
+
+    public Video() {
         this.createdAt = LocalDateTime.now();
     }
 
-    public Music(String title, String streamUrl) {
+    public Video(String title, String streamUrl) {
         this.title = title;
         this.streamUrl = streamUrl;
         this.createdAt = LocalDateTime.now();
     }
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }
@@ -135,21 +138,28 @@ public class Music {
     // Helper methods
     public void addArtist(Artist artist) {
         this.artists.add(artist);
-        artist.getMusicList().add(this);
+        artist.getVideoList().add(this);
     }
 
     public void removeArtist(Artist artist) {
         this.artists.remove(artist);
-        artist.getMusicList().remove(this);
+        artist.getVideoList().remove(this);
     }
 
     public void addGenre(Genre genre) {
         this.genres.add(genre);
-        genre.getMusicList().add(this);
+        genre.getVideoList().add(this);
     }
 
     public void removeGenre(Genre genre) {
         this.genres.remove(genre);
-        genre.getMusicList().remove(this);
+        genre.getVideoList().remove(this);
+    }
+
+    public Long getPlayCount() {
+        return playCount;
+    }
+    public void setPlayCount(Long playCount) {
+        this.playCount = playCount;
     }
 }

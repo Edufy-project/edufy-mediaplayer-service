@@ -1,6 +1,6 @@
-package com.comp.edufymediaplayerservice.repository;
+package com.comp.edufymediaplayerservice.repositories;
 
-import com.comp.edufymediaplayerservice.entity.Genre;
+import com.comp.edufymediaplayerservice.entities.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

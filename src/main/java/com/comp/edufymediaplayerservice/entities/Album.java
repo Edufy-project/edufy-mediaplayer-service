@@ -1,5 +1,6 @@
-package com.comp.edufymediaplayerservice.entity;
+package com.comp.edufymediaplayerservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class Album {
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     private List<Music> musicList = new ArrayList<>();
 
+    @JsonIgnoreProperties("album")
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     private List<Pod> podList = new ArrayList<>();
 

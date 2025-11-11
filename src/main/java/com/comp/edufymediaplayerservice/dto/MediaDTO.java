@@ -16,6 +16,7 @@ public class MediaDTO {
     private String albumTitle;
     private List<String> artistNames;
     private List<String> genreNames;
+    private Long playCount;
 
     public MediaDTO() {}
 
@@ -97,5 +98,12 @@ public class MediaDTO {
 
     public void setGenreNames(List<String> genreNames) {
         this.genreNames = genreNames;
+    }
+
+    public Long getPlayCount() {
+        return playCount;
+    }
+    public void setPlayCount(Long playCount) {
+        this.playCount = playCount;
     }
 }
