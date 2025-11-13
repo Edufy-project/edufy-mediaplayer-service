@@ -23,9 +23,14 @@ public class MediaController {
         return mediaService.getMediaGenreById(mediaType, mediaId);
     }
 
-    @GetMapping("getmedia/genre/{genre}")
-    public Object getMediaByGenre(@PathVariable String genre) {
-        return mediaService.getAllMediaByGenre(genre);
+    @GetMapping("getmedia/all/{mediaType}")
+    public Object getAllMediaByType(@PathVariable String mediaType) {
+        return mediaService.getAllMediaByType(mediaType);
+    }
+
+    @GetMapping("getmedia/{mediaType}/{genre}")
+    public Object getMediaByGenre(@PathVariable String mediaType, @PathVariable String genre) {
+        return mediaService.getAllMediaByGenre(mediaType, genre);
     }
 
     @GetMapping("media/{mediaName}")
