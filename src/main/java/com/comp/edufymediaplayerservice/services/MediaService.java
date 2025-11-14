@@ -29,6 +29,63 @@ public class MediaService {
         this.videoRepository = videoRepository;
     }
 
+    public Object getAllMediaByType(String mediaType) {
+        if (mediaType.equalsIgnoreCase("music")) {
+            List<Music> musicList = musicRepository.findAll();
+            return musicList;
+        } else if (mediaType.equalsIgnoreCase("pod")) {
+            List<Pod> podList = podRepository.findAll();
+            return podList;
+        } else if (mediaType.equalsIgnoreCase("video")) {
+            List<Video> videoList = videoRepository.findAll();
+            return videoList;
+        } else {
+            throw new RuntimeException("Invalid type. Valid types are: music, pod, video");
+        }
+    }
+
+    public String getMediaGenreById(String mediaType, Long mediaId) {
+
+        if (mediaType.equalsIgnoreCase("music")) {
+            Optional<Music> optional = musicRepository.findById(mediaId);
+            if (optional.isPresent()) {
+                return optional.get().getGenre();
+            } else {
+                throw new RuntimeException("Music with id " + mediaId + " does not exist.");
+            }
+        } else if (mediaType.equalsIgnoreCase("pod")) {
+            Optional<Pod> optional = podRepository.findById(mediaId);
+            if (optional.isPresent()) {
+                return optional.get().getGenre();
+            } else {
+                throw new RuntimeException("Pod with id " + mediaId + " does not exist.");
+            }
+        } else if (mediaType.equalsIgnoreCase("video")) {
+            Optional<Video> optional = videoRepository.findById(mediaId);
+            if (optional.isPresent()) {
+                return optional.get().getGenre();
+            } else {
+                throw new RuntimeException("Video with id " + mediaId + " does not exist.");
+            }
+        } else {
+            throw new RuntimeException("Invalid type. Valid types are: music, pod, video");
+        }
+
+    }
+
+    public Object getAllMediaByGenre(String mediaType, String genre) {
+        if (mediaType.equalsIgnoreCase("music")) {
+            return musicRepository.findAllByGenreIgnoreCase(genre);
+        } else if (mediaType.equalsIgnoreCase("pod")) {
+            return podRepository.findAllByGenreIgnoreCase(genre);
+        } else if (mediaType.equalsIgnoreCase("video")) {
+            return videoRepository.findAllByGenreIgnoreCase(genre);
+        } else {
+            throw new RuntimeException("Invalid type. Valid types are: music, pod, video");
+        }
+
+    }
+
     public Object getMediaByName(String mediaName) {
 
         if (mediaName.contains(" ")) {

@@ -21,6 +21,7 @@ public interface MusicRepository extends JpaRepository<Music, Long> {
     @Query("SELECT m FROM Music m JOIN m.genres g WHERE g.id = :genreId")
     List<Music> findByGenreId(@Param("genreId") Long genreId);
 
+    List<Music> findAllByGenreIgnoreCase(String genre);
 
     List<Music> findByAlbumOrderByAlbumOrderAsc(Album album);
 

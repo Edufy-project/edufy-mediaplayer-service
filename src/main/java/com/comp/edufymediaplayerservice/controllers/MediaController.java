@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("edufy/api/mediaplayer/")
 public class MediaController {
@@ -14,6 +16,21 @@ public class MediaController {
 
     public MediaController(MediaService mediaService){
         this.mediaService = mediaService;
+    }
+
+    @GetMapping("getgenre/{mediaType}/{mediaId}")
+    public String getMediaGenreById(@PathVariable String mediaType, @PathVariable Long mediaId) {
+        return mediaService.getMediaGenreById(mediaType, mediaId);
+    }
+
+    @GetMapping("getmedia/all/{mediaType}")
+    public Object getAllMediaByType(@PathVariable String mediaType) {
+        return mediaService.getAllMediaByType(mediaType);
+    }
+
+    @GetMapping("getmedia/{mediaType}/{genre}")
+    public Object getMediaByGenre(@PathVariable String mediaType, @PathVariable String genre) {
+        return mediaService.getAllMediaByGenre(mediaType, genre);
     }
 
     @GetMapping("media/{mediaName}")
