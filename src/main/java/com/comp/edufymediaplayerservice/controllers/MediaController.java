@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("edufy/api/mediaplayer/")
 public class MediaController {
@@ -48,9 +46,9 @@ public class MediaController {
         return mediaService.getArtistByName(artistName);
     }
 
-    @GetMapping("likemedia/{mediaName}/{mediaId}")
+    /*@GetMapping("likemedia/{mediaName}/{mediaId}")
     public void likeMediaByName(@PathVariable String mediaType, @PathVariable Long mediaId){
         return mediaService.likeMedia(mediaType, mediaId);
-    }
+    }*/
 
 }
