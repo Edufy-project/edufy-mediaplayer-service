@@ -23,6 +23,7 @@ public class Album {
     @Column(name = "cover_image_url")
     private String coverImageUrl;
 
+    @JsonIgnoreProperties("album")
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     private List<Music> musicList = new ArrayList<>();
 
@@ -30,6 +31,7 @@ public class Album {
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     private List<Pod> podList = new ArrayList<>();
 
+    @JsonIgnoreProperties("album")
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     private List<Video> videoList = new ArrayList<>();
 
