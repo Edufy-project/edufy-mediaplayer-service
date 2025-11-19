@@ -1,118 +1,127 @@
-insert into albums (title, release_date, cover_image_url) values ('Flying Beagle', '1987-10-21',  'cover_images/flying_beagle.jpg');
-insert into albums (title, release_date, cover_image_url) values ('Blood on the Tracks', '1975-01-20',  'cover_images/blood_on_the_tracks.jpg');
-insert into albums (title, release_date, cover_image_url) values ('Welcome To The Rose Garden', '1995-05-21',  'cover_images/rose_garden.jpg');
-insert into albums (title, release_date, cover_image_url) values ('Illmatic', '1994-04-19',  'cover_images/illmatic.jpg');
-insert into albums (title, release_date, cover_image_url) values ('Vaudeville Villain', '2003-09-16',  'cover_images/villain.jpg');
+insert into albums (title, release_date, cover_image_url)
+values
+    ('Flying Beagle', '1987-10-21',  'cover_images/flying_beagle.jpg'),
+    ('Blood on the Tracks', '1975-01-20',  'cover_images/blood_on_the_tracks.jpg'),
+    ('Welcome To The Rose Garden', '1995-05-21',  'cover_images/rose_garden.jpg'),
+    ('Illmatic', '1994-04-19',  'cover_images/illmatic.jpg'),
+    ('Vaudeville Villain', '2003-09-16',  'cover_images/villain.jpg');
 
 insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Look Your Back!', '1987-10-21', 'music/flying_beagle1.mp3', 'Jazz Fusion',1, 1, '1987-10-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('A Seagull and Clouds', '1987-10-21', 'music/flying_beagle2.mp3', 'Jazz Fusion',1, 2, '1987-10-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Flying Beagle', '1987-10-21', 'music/flying_beagle3.mp3', 'Jazz Fusion',1, 3, '1987-10-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Fluffy', '1987-10-21', 'music/flying_beagle4.mp3', 'Jazz Fusion',1, 4, '1987-10-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Sandstorm', '1987-10-21', 'music/flying_beagle5.mp3', 'Jazz Fusion',1, 5, '1987-10-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Baby Talk', '1987-10-21', 'music/flying_beagle6.mp3', 'Jazz Fusion',1, 6, '1987-10-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('The Second Summer', '1987-10-21', 'music/flying_beagle7.mp3', 'Jazz Fusion',1, 7, '1987-10-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Ducky Ducky', '1987-10-21', 'music/flying_beagle8.mp3', 'Jazz Fusion',1, 8, '1987-10-21');
+values
+    ('Look Your Back!', '1987-10-21', 'music/flying_beagle1.mp3', 'Jazz Fusion',1, 1, '1987-10-21'),
+    ('A Seagull and Clouds', '1987-10-21', 'music/flying_beagle2.mp3', 'Jazz Fusion',1, 2, '1987-10-21'),
+    ('Flying Beagle', '1987-10-21', 'music/flying_beagle3.mp3', 'Jazz Fusion',1, 3, '1987-10-21'),
+    ('Fluffy', '1987-10-21', 'music/flying_beagle4.mp3', 'Jazz Fusion',1, 4, '1987-10-21'),
+    ('Sandstorm', '1987-10-21', 'music/flying_beagle5.mp3', 'Jazz Fusion',1, 5, '1987-10-21'),
+    ('Baby Talk', '1987-10-21', 'music/flying_beagle6.mp3', 'Jazz Fusion',1, 6, '1987-10-21'),
+    ('The Second Summer', '1987-10-21', 'music/flying_beagle7.mp3', 'Jazz Fusion',1, 7, '1987-10-21'),
+    ('Ducky Ducky', '1987-10-21', 'music/flying_beagle8.mp3', 'Jazz Fusion',1, 8, '1987-10-21'),
 
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Tangled Up in Blue', '1975-01-20', 'music/blood_tracks1.mp3', 'Folkrock',2, 1, '1974-12-30');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Simple Twist of Fate', '1975-01-20', 'music/blood_tracks2.mp3', 'Folkrock',2, 2, '1974-09-19');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('You''re a Big Girl Now', '1975-01-20', 'music/blood_tracks3.mp3', 'Folkrock',2, 3, '1974-12-27');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Idiot Wind', '1975-01-20', 'music/blood_tracks4.mp3', 'Folkrock',2, 4, '1974-12-27');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('You''re Gonna Make Me Lonesome When You Go', '1975-01-20', 'music/blood_tracks5.mp3', 'Folkrock',2, 5, '1974-09-17');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Meet Me in the Morning', '1975-01-20', 'music/blood_tracks6.mp3', 'Folkrock',2, 6, '1974-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Lily, Rosemary and the Jack of Hearts', '1975-01-20', 'music/blood_tracks7.mp3', 'Folkrock',2, 7, '1974-12-30');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('If You See Her, Say Hello', '1975-01-20', 'music/blood_tracks8.mp3', 'Folkrock',2, 8, '1974-12-30');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Shelter from the Storm', '1975-01-20', 'music/blood_tracks9.mp3', 'Folkrock',2, 9, '1974-09-17');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Buckets of Rain', '1975-01-20', 'music/blood_tracks10.mp3', 'Folkrock',2, 10, '1974-09-19');
+    ('Tangled Up in Blue', '1975-01-20', 'music/blood_tracks1.mp3', 'Folkrock',2, 1, '1974-12-30'),
+    ('Simple Twist of Fate', '1975-01-20', 'music/blood_tracks2.mp3', 'Folkrock',2, 2, '1974-09-19'),
+    ('You''re a Big Girl Now', '1975-01-20', 'music/blood_tracks3.mp3', 'Folkrock',2, 3, '1974-12-27'),
+    ('Idiot Wind', '1975-01-20', 'music/blood_tracks4.mp3', 'Folkrock',2, 4, '1974-12-27'),
+    ('You''re Gonna Make Me Lonesome When You Go', '1975-01-20', 'music/blood_tracks5.mp3', 'Folkrock',2, 5, '1974-09-17'),
+    ('Meet Me in the Morning', '1975-01-20', 'music/blood_tracks6.mp3', 'Folkrock',2, 6, '1974-09-16'),
+    ('Lily, Rosemary and the Jack of Hearts', '1975-01-20', 'music/blood_tracks7.mp3', 'Folkrock',2, 7, '1974-12-30'),
+    ('If You See Her, Say Hello', '1975-01-20', 'music/blood_tracks8.mp3', 'Folkrock',2, 8, '1974-12-30'),
+    ('Shelter from the Storm', '1975-01-20', 'music/blood_tracks9.mp3', 'Folkrock',2, 9, '1974-09-17'),
+    ('Buckets of Rain', '1975-01-20', 'music/blood_tracks10.mp3', 'Folkrock',2, 10, '1974-09-19'),
 
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Triumph', '1995-05-21', 'music/rose_garden1.mp3', 'Jazz Fusion',3, 1, '1995-05-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Crown And Roses', '1995-05-21', 'music/rose_garden2.mp3', 'Jazz Fusion',3, 2, '1995-05-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('History', '1995-05-21', 'music/rose_garden3.mp3', 'Jazz Fusion',3, 3, '1995-05-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Sunnyside Cruise', '1995-05-21', 'music/rose_garden4.mp3', 'Jazz Fusion',3, 4, '1995-05-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Splash!', '1995-05-21', 'music/rose_garden5.mp3', 'Jazz Fusion',3, 5, '1995-05-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Landscape', '1995-05-21', 'music/rose_garden6.mp3', 'Jazz Fusion',3, 6, '1995-05-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('41, Parthenia Rd.', '1995-05-21', 'music/rose_garden7.mp3', 'Jazz Fusion',3, 7, '1995-05-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('The Autumn Of ''75', '1995-05-21', 'music/rose_garden8.mp3', 'Jazz Fusion',3, 8, '1995-05-21');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Prime Time', '1995-05-21', 'music/rose_garden9.mp3', 'Jazz Fusion',3, 9, '1995-05-21');
+    ('Triumph', '1995-05-21', 'music/rose_garden1.mp3', 'Jazz Fusion',3, 1, '1995-05-21'),
+    ('Crown And Roses', '1995-05-21', 'music/rose_garden2.mp3', 'Jazz Fusion',3, 2, '1995-05-21'),
+    ('History', '1995-05-21', 'music/rose_garden3.mp3', 'Jazz Fusion',3, 3, '1995-05-21'),
+    ('Sunnyside Cruise', '1995-05-21', 'music/rose_garden4.mp3', 'Jazz Fusion',3, 4, '1995-05-21'),
+    ('Splash!', '1995-05-21', 'music/rose_garden5.mp3', 'Jazz Fusion',3, 5, '1995-05-21'),
+    ('Landscape', '1995-05-21', 'music/rose_garden6.mp3', 'Jazz Fusion',3, 6, '1995-05-21'),
+    ('41, Parthenia Rd.', '1995-05-21', 'music/rose_garden7.mp3', 'Jazz Fusion',3, 7, '1995-05-21'),
+    ('The Autumn Of ''75', '1995-05-21', 'music/rose_garden8.mp3', 'Jazz Fusion',3, 8, '1995-05-21'),
+    ('Prime Time', '1995-05-21', 'music/rose_garden9.mp3', 'Jazz Fusion',3, 9, '1995-05-21'),
 
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('The Genesis', '1994-04-19', 'music/illmatic1.mp3', 'Hip-hop',4, 1, '1994-04-19');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('N.Y. State of Mind', '1994-04-19', 'music/illmatic2.mp3', 'Hip-hop',4, 2, '1994-04-19');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Life''s a Bitch (ft. AZ)', '1994-04-19', 'music/illmatic3.mp3', 'Hip-hop',4, 3, '1994-04-19');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('The World Is Yours', '1994-04-19', 'music/illmatic4.mp3', 'Hip-hop',4, 4, '1994-04-19');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Halftime', '1994-04-19', 'music/illmatic5.mp3', 'Hip-hop',4, 5, '1994-04-19');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Memory Lane (Sittin'' in da Park)', '1994-04-19', 'music/illmatic6.mp3', 'Hip-hop',4, 6, '1994-04-19');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('One Love', '1994-04-19', 'music/illmatic7.mp3', 'Hip-hop',4, 7, '1994-04-19');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('One Time 4 Your Mind', '1994-04-19', 'music/illmatic8.mp3', 'Hip-hop',4, 8, '1994-04-19');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Represent', '1994-04-19', 'music/illmatic9.mp3', 'Hip-hop',4, 9, '1994-04-19');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('It Ain''t Hard to Tell', '1994-04-19', 'music/illmatic10.mp3', 'Hip-hop',4, 10, '1994-04-19');
+    ('The Genesis', '1994-04-19', 'music/illmatic1.mp3', 'Hip-hop',4, 1, '1994-04-19'),
+    ('N.Y. State of Mind', '1994-04-19', 'music/illmatic2.mp3', 'Hip-hop',4, 2, '1994-04-19'),
+    ('Life''s a Bitch (ft. AZ)', '1994-04-19', 'music/illmatic3.mp3', 'Hip-hop',4, 3, '1994-04-19'),
+    ('The World Is Yours', '1994-04-19', 'music/illmatic4.mp3', 'Hip-hop',4, 4, '1994-04-19'),
+    ('Halftime', '1994-04-19', 'music/illmatic5.mp3', 'Hip-hop',4, 5, '1994-04-19'),
+    ('Memory Lane (Sittin'' in da Park)', '1994-04-19', 'music/illmatic6.mp3', 'Hip-hop',4, 6, '1994-04-19'),
+    ('One Love', '1994-04-19', 'music/illmatic7.mp3', 'Hip-hop',4, 7, '1994-04-19'),
+    ('One Time 4 Your Mind', '1994-04-19', 'music/illmatic8.mp3', 'Hip-hop',4, 8, '1994-04-19'),
+    ('Represent', '1994-04-19', 'music/illmatic9.mp3', 'Hip-hop',4, 9, '1994-04-19'),
+    ('It Ain''t Hard to Tell', '1994-04-19', 'music/illmatic10.mp3', 'Hip-hop',4, 10, '1994-04-19'),
 
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Overture', '2003-09-16', 'music/villain1.mp3', 'Hip-hop',5, 1, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Vaudeville Villain', '2003-09-16', 'music/villain2.mp3', 'Hip-hop',5, 2, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Lickupon', '2003-09-16', 'music/villain3.mp3', 'Hip-hop',5, 3, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('The Drop', '2003-09-16', 'music/villain4.mp3', 'Hip-hop',5, 4, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Lactose and Lecithin', '2003-09-16', 'music/villain5.mp3', 'Hip-hop',5, 5, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('A Dead Mouse', '2003-09-16', 'music/villain6.mp3', 'Hip-hop',5, 6, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Open Mic Nite, Pt. 1 (ft. Lord Sear, Brother Sambuca, Dr. Moreau and Louis Logic)', '2003-09-16', 'music/villain7.mp3', 'Hip-hop',5, 7, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('RaeDawn', '2003-09-16', 'music/villain8.mp3', 'Hip-hop',5, 8, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Let Me Watch (ft. Apani B)', '2003-09-16', 'music/villain9.mp3', 'Hip-hop',5, 9, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Saliva', '2003-09-16', 'music/villain10.mp3', 'Hip-hop',5, 10, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Modern Day Mugging', '2003-09-16', 'music/villain11.mp3', 'Hip-hop',5, 11, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Open Mic Nite, Pt. 2 (ft. Lord Sear, AJ Ready Wright and Creature)', '2003-09-16', 'music/villain12.mp3', 'Hip-hop',5, 12, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Never Dead (ft. M. Sayyid)', '2003-09-16', 'music/villain13.mp3', 'Hip-hop',5, 13, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('PopSnot', '2003-09-16', 'music/villain14.mp3', 'Hip-hop',5, 14, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Mr. Clean', '2003-09-16', 'music/villain15.mp3', 'Hip-hop',5, 15, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('G.M.C.', '2003-09-16', 'music/villain16.mp3', 'Hip-hop',5, 16, '2003-09-16');
-insert into music (title, release_date, stream_url, genre, album_id, album_order, created_at)
-values ('Untitled A.K.A. Change the Beat', '2003-09-16', 'music/villain17.mp3', 'Hip-hop',5, 17, '2003-09-16');
+    ('Overture', '2003-09-16', 'music/villain1.mp3', 'Hip-hop',5, 1, '2003-09-16'),
+    ('Vaudeville Villain', '2003-09-16', 'music/villain2.mp3', 'Hip-hop',5, 2, '2003-09-16'),
+    ('Lickupon', '2003-09-16', 'music/villain3.mp3', 'Hip-hop',5, 3, '2003-09-16'),
+    ('The Drop', '2003-09-16', 'music/villain4.mp3', 'Hip-hop',5, 4, '2003-09-16'),
+    ('Lactose and Lecithin', '2003-09-16', 'music/villain5.mp3', 'Hip-hop',5, 5, '2003-09-16'),
+    ('A Dead Mouse', '2003-09-16', 'music/villain6.mp3', 'Hip-hop',5, 6, '2003-09-16'),
+    ('Open Mic Nite, Pt. 1 (ft. Lord Sear, Brother Sambuca, Dr. Moreau and Louis Logic)', '2003-09-16', 'music/villain7.mp3', 'Hip-hop',5, 7, '2003-09-16'),
+    ('RaeDawn', '2003-09-16', 'music/villain8.mp3', 'Hip-hop',5, 8, '2003-09-16'),
+    ('Let Me Watch (ft. Apani B)', '2003-09-16', 'music/villain9.mp3', 'Hip-hop',5, 9, '2003-09-16'),
+    ('Saliva', '2003-09-16', 'music/villain10.mp3', 'Hip-hop',5, 10, '2003-09-16'),
+    ('Modern Day Mugging', '2003-09-16', 'music/villain11.mp3', 'Hip-hop',5, 11, '2003-09-16'),
+    ('Open Mic Nite, Pt. 2 (ft. Lord Sear, AJ Ready Wright and Creature)', '2003-09-16', 'music/villain12.mp3', 'Hip-hop',5, 12, '2003-09-16'),
+    ('Never Dead (ft. M. Sayyid)', '2003-09-16', 'music/villain13.mp3', 'Hip-hop',5, 13, '2003-09-16'),
+    ('PopSnot', '2003-09-16', 'music/villain14.mp3', 'Hip-hop',5, 14, '2003-09-16'),
+    ('Mr. Clean', '2003-09-16', 'music/villain15.mp3', 'Hip-hop',5, 15, '2003-09-16'),
+    ('G.M.C.', '2003-09-16', 'music/villain16.mp3', 'Hip-hop',5, 16, '2003-09-16'),
+    ('Untitled A.K.A. Change the Beat', '2003-09-16', 'music/villain17.mp3', 'Hip-hop',5, 17, '2003-09-16');
+
+insert into pods (title, release_date, stream_url, genre, album_id, album_order, created_at)
+values
+    ('Is front-end even real programming?', '2025-01-01', 'pod/theprimeagen', 'programming', null, null, '2025-01-01'),
+    ('Why we actually need more JS frameworks in 2025', '2025-01-10', 'pod/trashdev', 'programming', null, null, '2025-01-10'),
+    ('Why Jesus probably wrote his backend in Rust', '2024-12-24', 'pod/theprimeagen', 'programming', null, null, '2024-12-24'),
+    ('Neo-VIM would beat InteliJ in a foot race', '2022-09-11', 'pod/teej', 'programming', null, null, '2022-09-11'),
+    ('GUIs are for the WEAK!', '2019-12-12', 'pod/trashdev', 'programming', null, null, '2022-12-12'),
+    ('Is Virginia Wolf afraid of boiler plate?', '2014-03-14', 'pod/userman', 'programming', null, null, '2014-03-14'),
+    ('Why would we need auth? we run noDB', '2024-11-11', 'pod/trashdev', 'programming', null, null, '2024-11-11'),
+    ('Linus might deserve a Nobel peace price...', '2025-11-20', 'pod/teej', 'programming', null, null, '2025-11-20'),
+    ('Version control belongs in the terminal', '2025-12-20', 'pod/teej', 'programming', null, null, '2025-12-20'),
+    ('OOP is an eternal void of abstraction', '2025-02-10', 'pod/teej', 'programming', null, null, '2025-02-10'),
+    ('The version is under control... We push on save', '2020-01-10', 'pod/trashdev', 'programming', null, null, '2020-01-10'),
+    ('UI only becomes relevant as you start having users', '2021-01-01', 'pod/trashdev', 'programming', null, null, '2021-01-01'),
+    ('UI never becomes relevant if you only release for Linux', '2023-01-01', 'pod/trashdev', 'programming', null, null, '2023-01-01'),
+    ('I will start writing documentation once my team learns how to read code', '2025-12-12', 'pod/theprimeagen', 'programming', null, null, '2025-12-12'),
+    ('Do I have an optimization issue or do you simply have a weak CPU issue?', '2025-03-03', 'pod/trashdev', 'programming', null, null, '2025-03-03'),
+    ('How to refractor Doom off the company microwave', '2025-11-11', 'pod/trashdev', 'programming', null, null, '2025-11-11'),
+    ('How to refractor the face of the guy who put Doom on the company microwave', '2025-11-12', 'pod/trashdev', 'programming', null, null, '2025-11-12'),
+
+    ('Delay post Reverb is a war crime', '2025-12-12', 'pod/anders', 'music', null, null, '2025-12-12'),
+    ('No VST can save poor production skills', '2025-02-03', 'pod/anders', 'music', null, null, '2025-10-02'),
+    ('The L in FL Studio symbolises its users music', '2020-10-01', 'pod/strudel', 'music', null, null, '2020-10-01'),
+    ('Is KK.Slider Jimmie Hendrix reincarnated?', '2021-10-01', 'pod/strudel', 'music', null, null, '2021-10-01'),
+    ('Use a DE-esser on vocals or DE-lete your DAW', '2021-10-01', 'pod/strudel', 'music', null, null, '2021-10-01'),
+    ('Ableton has a student discount...... just saying', '2025-09-11', 'pod/memoria', 'music', null, null, '2025-09-11'),
+    ('FL Studio does not have a student discount...... just saying', '2025-09-11', 'pod/memoria', 'music', null, null, '2025-09-11'),
+    ('Delete FL Studio..... just saying', '2025-09-11', 'pod/memoria', 'music', null, null, '2025-09-11'),
+    ('Learn about compression based side chain!', '2023-03-03', 'pod/anders', 'music', null, null, '2023-03-03');
+
+insert into videos (title, release_date, stream_url, genre, album_id, album_order, created_at)
+values
+    ('Overcoming the Dawn Wall', '2022-07-09', 'video/magnusmitbo', 'climbing', null, null, '2022-07-09'),
+    ('Drone 2.0 is a trick on humanity', '2024-12-03', 'video/magnusmitbo', 'climbing', null, null, '2024-12-03'),
+    ('Baking a cake with Mag dust instead of sugar', '2025-07-15', 'video/magnusmitbo', 'climbing', null, null, '2025-07-15'),
+    ('Are Kilter grades meant to hurt your feelings?', '2025-07-17', 'video/sebastian', 'climbing', null, null, '2025-07-17'),
+    ('Lead climbing Point Blanc with a 3-meter rope', '2012-12-12', 'video/sebastian', 'climbing', null, null, '2012-12-12'),
+
+    ('How to roll your own Oauth in 2025', '2025-09-09', 'video/theprimagen', 'programming', null, null, '2025-09-09'),
+    ('DO NOT UPLOAD THE API KEY TO GITHUB!', '2025-11-14', 'video/theprimagen', 'programming', null, null, '2025-11-14'),
+    ('If HTML is a language ill just learn French instead', '2025-07-03', 'video/trashdev', 'programming', null, null, '2025-07-03'),
+    ('Development being done on IOS is devlopment in the wrong direction', '2025-04-14', 'video/userman', 'programming', null, null, '2025-04-14'),
+    ('Is vibe coding for 0.5X devs?', '2025-02-20', 'video/teej', 'programming', null, null, '2025-02-20'),
+    ('How to exit Neo VIM, Part #1', '2025-05-01', 'video/teej', 'programming', null, null, '2025-05-01'),
+    ('How to exit Neo VIM, Part #2', '2025-05-02', 'video/teej', 'programming', null, null, '2025-05-02'),
+    ('How to exit Neo VIM, Part #3 (final part)', '2025-05-03', 'video/teej', 'programming', null, null, '2025-05-03'),
+    ('Arch Linux  install tutorial', '2025-06-06', 'video/userman', 'programming', null, null, '2025-06-06'),
+    ('Welcome to the Rice Fields (Arch Linux)', '2025-06-08', 'video/userman', 'programming', null, null, '2025-06-08'),
+    ('I dont refractor, I rewrite to Rust', '2023-03-03', 'video/memoria', 'programming', null, null, '2023-03-03'),
+    ('I ported Doom to my girlfriends diabetes monitor', '2023-03-03', 'video/memoria', 'programming', null, null, '2023-03-03'),
+    ('How to download Temple OS on your Nintendo Switch', '2025-11-12', 'video/memoria', 'programming', null, null, '2025-11-12'),
+    ('Xcode is cool in the same way falling from the third floor is cool', '2025-03-12', 'video/memoria', 'programming', null, null, '2025-03-12'),
+    ('How to center a div in html', '2001-03-12', 'video/brogramer', 'programming', null, null, '2001-03-12'),
+    ('VS Code is for interns, real devs work in Notepad', '2002-03-12', 'video/brogramer', 'programming', null, null, '2002-03-12'),
+    ('My SQL? we store data in Excel', '2003-03-12', 'video/brogramer', 'programming', null, null, '2003-03-12'),
+    ('No clean code is written on a 2004 ThinkPad at 2 am, but the solution we require is.', '2004-03-12', 'video/brogramer', 'programming', null, null, '2004-03-12'),
+    ('I build software like I build houses... With a back door', '2005-03-12', 'video/brogramer', 'programming', null, null, '2005-03-12'),
+    ('Why scale, when you can just drop inactive users from the DB - (my life as an insurance banking dev)', '2025-12-12', 'video/memoria', 'programming', null, null, '2025-12-12');
