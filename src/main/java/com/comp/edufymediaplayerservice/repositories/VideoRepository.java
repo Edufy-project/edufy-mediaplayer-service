@@ -19,10 +19,10 @@ public interface VideoRepository extends JpaRepository<Video, Long> {
     List<Video> findByArtistId(@Param("artistId") Long artistId);
 
 
-    @Query("SELECT v FROM Video v JOIN v.genres g WHERE g.id = :genreId")
+    @Query("SELECT v FROM Video v JOIN v.genre g WHERE g.id = :genreId")
     List<Video> findByGenreId(@Param("genreId") Long genreId);
 
-    List<Video> findAllByGenreIgnoreCase(String genre);
+    List<Video> findAllByGenreNameIgnoreCase(String genreName);
 
     List<Video> findByAlbumOrderByAlbumOrderAsc(Album album);
 
@@ -43,10 +43,10 @@ public interface VideoRepository extends JpaRepository<Video, Long> {
     List<Video> findAllByOrderByReleaseDateDesc();
 
 
-    @Query("SELECT DISTINCT v FROM Video v JOIN v.genres g WHERE g.id IN :genreIds")
+    @Query("SELECT DISTINCT v FROM Video v JOIN v.genre g WHERE g.id IN :genreIds")
     List<Video> findByGenreIds(@Param("genreIds") List<Long> genreIds);
 
 
-    @Query("SELECT DISTINCT v FROM Video v JOIN v.artists a JOIN v.genres g WHERE a.id = :artistId AND g.id = :genreId")
+    @Query("SELECT DISTINCT v FROM Video v JOIN v.artists a JOIN v.genre g WHERE a.id = :artistId AND g.id = :genreId")
     List<Video> findByArtistIdAndGenreId(@Param("artistId") Long artistId, @Param("genreId") Long genreId);
 }

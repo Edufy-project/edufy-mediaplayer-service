@@ -1,5 +1,6 @@
 package com.comp.edufymediaplayerservice.services;
 
+import com.comp.edufymediaplayerservice.dto.MediaDTO;
 import com.comp.edufymediaplayerservice.entities.*;
 import com.comp.edufymediaplayerservice.repositories.*;
 import org.springframework.stereotype.Service;
@@ -31,16 +32,28 @@ public class MediaService {
         this.videoRepository = videoRepository;
     }
 
-    public Object getAllMediaByType(String mediaType) {
+    public List<MediaDTO> getAllMediaByType(String mediaType) {
         if (mediaType.equalsIgnoreCase("music")) {
-            List<Music> musicList = musicRepository.findAll();
-            return musicList;
+            return musicRepository.findAll().stream()
+                    .map(music -> new MediaDTO(
+                            music.getId(),
+                            music.getTitle(),
+                            music.getGenre().getName()
+                    )).toList();
         } else if (mediaType.equalsIgnoreCase("pod")) {
-            List<Pod> podList = podRepository.findAll();
-            return podList;
+            return podRepository.findAll().stream()
+                    .map(pod -> new MediaDTO(
+                            pod.getId(),
+                            pod.getTitle(),
+                            pod.getGenre().getName()
+                    )).toList();
         } else if (mediaType.equalsIgnoreCase("video")) {
-            List<Video> videoList = videoRepository.findAll();
-            return videoList;
+            return videoRepository.findAll().stream()
+                    .map(video -> new MediaDTO(
+                            video.getId(),
+                            video.getTitle(),
+                            video.getGenre().getName()
+                    )).toList();
         } else {
             throw new RuntimeException("Invalid type. Valid types are: music, pod, video");
         }
@@ -51,21 +64,21 @@ public class MediaService {
         if (mediaType.equalsIgnoreCase("music")) {
             Optional<Music> optional = musicRepository.findById(mediaId);
             if (optional.isPresent()) {
-                return optional.get().getGenre();
+                return optional.get().getGenre().getName();
             } else {
                 throw new RuntimeException("Music with id " + mediaId + " does not exist.");
             }
         } else if (mediaType.equalsIgnoreCase("pod")) {
             Optional<Pod> optional = podRepository.findById(mediaId);
             if (optional.isPresent()) {
-                return optional.get().getGenre();
+                return optional.get().getGenre().getName();
             } else {
                 throw new RuntimeException("Pod with id " + mediaId + " does not exist.");
             }
         } else if (mediaType.equalsIgnoreCase("video")) {
             Optional<Video> optional = videoRepository.findById(mediaId);
             if (optional.isPresent()) {
-                return optional.get().getGenre();
+                return optional.get().getGenre().getName();
             } else {
                 throw new RuntimeException("Video with id " + mediaId + " does not exist.");
             }
@@ -75,13 +88,31 @@ public class MediaService {
 
     }
 
-    public Object getAllMediaByGenre(String mediaType, String genre) {
+    public List<MediaDTO> getAllMediaByGenre(String mediaType, String genre) {
         if (mediaType.equalsIgnoreCase("music")) {
-            return musicRepository.findAllByGenreIgnoreCase(genre);
+            return musicRepository.findAllByGenreNameIgnoreCase(genre).stream()
+                    .map(music -> new MediaDTO(
+                            music.getId(),
+                            music.getTitle(),
+                            music.getGenre().getName()
+                    ))
+                    .toList();
         } else if (mediaType.equalsIgnoreCase("pod")) {
-            return podRepository.findAllByGenreIgnoreCase(genre);
+            return podRepository.findAllByGenreNameIgnoreCase(genre).stream()
+                    .map(pod -> new MediaDTO(
+                            pod.getId(),
+                            pod.getTitle(),
+                            pod.getGenre().getName()
+                    ))
+                    .toList();
         } else if (mediaType.equalsIgnoreCase("video")) {
-            return videoRepository.findAllByGenreIgnoreCase(genre);
+            return videoRepository.findAllByGenreNameIgnoreCase(genre).stream()
+                    .map(video -> new MediaDTO(
+                            video.getId(),
+                            video.getTitle(),
+                            video.getGenre().getName()
+                    ))
+                    .toList();
         } else {
             throw new RuntimeException("Invalid type. Valid types are: music, pod, video");
         }

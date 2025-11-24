@@ -23,9 +23,6 @@ public class Pod {
     @Column(name = "stream_url", nullable = false)
     private String streamUrl;
 
-    @Column
-    private String genre;
-
     @ManyToOne
     @JoinColumn(name = "album_id")
     private Album album;
@@ -44,13 +41,9 @@ public class Pod {
     )
     private List<Artist> artists = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(
-            name = "pod_genres",
-            joinColumns = @JoinColumn(name = "pod_id"),
-            inverseJoinColumns = @JoinColumn(name = "genre_id")
-    )
-    private List<Genre> genres = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "genre_id")
+    private Genre genre;
 
     public Pod() {
         this.createdAt = LocalDateTime.now();
@@ -95,14 +88,6 @@ public class Pod {
         this.streamUrl = streamUrl;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
     public Album getAlbum() {
         return album;
     }
@@ -135,12 +120,12 @@ public class Pod {
         this.artists = artists;
     }
 
-    public List<Genre> getGenres() {
-        return genres;
+    public Genre getGenre() {
+        return genre;
     }
 
-    public void setGenres(List<Genre> genres) {
-        this.genres = genres;
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
     // Helper methods
@@ -152,15 +137,5 @@ public class Pod {
     public void removeArtist(Artist artist) {
         this.artists.remove(artist);
         artist.getPodList().remove(this);
-    }
-
-    public void addGenre(Genre genre) {
-        this.genres.add(genre);
-        genre.getPodList().add(this);
-    }
-
-    public void removeGenre(Genre genre) {
-        this.genres.remove(genre);
-        genre.getPodList().remove(this);
     }
 }

@@ -15,9 +15,14 @@ public class MediaDTO {
     private LocalDateTime createdAt;
     private String albumTitle;
     private List<String> artistNames;
-    private List<String> genreNames;
+    private String genreName;
 
     public MediaDTO() {}
+    public MediaDTO(Long id, String title, String genreName) {
+        this.id = id;
+        this.title = title;
+        this.genreName = genreName;
+    }
 
     public Long getId() {
         return id;
@@ -91,11 +96,11 @@ public class MediaDTO {
         this.artistNames = artistNames;
     }
 
-    public List<String> getGenreNames() {
-        return genreNames;
+    public String getGenreName() {
+        return genreName;
     }
 
-    public void setGenreNames(List<String> genreNames) {
-        this.genreNames = genreNames;
+    public void setGenreName(String genreName) {
+        this.genreName = genreName;
     }
 }

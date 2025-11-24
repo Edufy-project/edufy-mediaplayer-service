@@ -24,9 +24,6 @@ public class Music {
     @Column(name = "stream_url", nullable = false)
     private String streamUrl;
 
-    @Column
-    private String genre;
-
     @JsonIgnoreProperties({"musicList", "podList", "videoList"})
     @ManyToOne
     @JoinColumn(name = "album_id")
@@ -46,13 +43,9 @@ public class Music {
     )
     private List<Artist> artists = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(
-            name = "music_genres",
-            joinColumns = @JoinColumn(name = "music_id"),
-            inverseJoinColumns = @JoinColumn(name = "genre_id")
-    )
-    private List<Genre> genres = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "genre_id")
+    private Genre genre;
 
     public Music() {
         this.createdAt = LocalDateTime.now();
@@ -97,14 +90,6 @@ public class Music {
         this.streamUrl = streamUrl;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
     public Album getAlbum() {
         return album;
     }
@@ -137,12 +122,12 @@ public class Music {
         this.artists = artists;
     }
 
-    public List<Genre> getGenres() {
-        return genres;
+    public Genre getGenre() {
+        return genre;
     }
 
-    public void setGenres(List<Genre> genres) {
-        this.genres = genres;
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
     // Helper methods
@@ -154,15 +139,5 @@ public class Music {
     public void removeArtist(Artist artist) {
         this.artists.remove(artist);
         artist.getMusicList().remove(this);
-    }
-
-    public void addGenre(Genre genre) {
-        this.genres.add(genre);
-        genre.getMusicList().add(this);
-    }
-
-    public void removeGenre(Genre genre) {
-        this.genres.remove(genre);
-        genre.getMusicList().remove(this);
     }
 }

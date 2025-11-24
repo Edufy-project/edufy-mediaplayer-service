@@ -19,10 +19,10 @@ public interface PodRepository extends JpaRepository<Pod, Long> {
     List<Pod> findByArtistId(@Param("artistId") Long artistId);
 
 
-    @Query("SELECT p FROM Pod p JOIN p.genres g WHERE g.id = :genreId")
+    @Query("SELECT p FROM Pod p JOIN p.genre g WHERE g.id = :genreId")
     List<Pod> findByGenreId(@Param("genreId") Long genreId);
 
-    List<Pod> findAllByGenreIgnoreCase(String genre);
+    List<Pod> findAllByGenreNameIgnoreCase(String genreName);
 
     List<Pod> findByAlbumOrderByAlbumOrderAsc(Album album);
 
@@ -43,10 +43,10 @@ public interface PodRepository extends JpaRepository<Pod, Long> {
     List<Pod> findAllByOrderByReleaseDateDesc();
 
 
-    @Query("SELECT DISTINCT p FROM Pod p JOIN p.genres g WHERE g.id IN :genreIds")
+    @Query("SELECT DISTINCT p FROM Pod p JOIN p.genre g WHERE g.id IN :genreIds")
     List<Pod> findByGenreIds(@Param("genreIds") List<Long> genreIds);
 
 
-    @Query("SELECT DISTINCT p FROM Pod p JOIN p.artists a JOIN p.genres g WHERE a.id = :artistId AND g.id = :genreId")
+    @Query("SELECT DISTINCT p FROM Pod p JOIN p.artists a JOIN p.genre g WHERE a.id = :artistId AND g.id = :genreId")
     List<Pod> findByArtistIdAndGenreId(@Param("artistId") Long artistId, @Param("genreId") Long genreId);
 }

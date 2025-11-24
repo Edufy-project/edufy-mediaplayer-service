@@ -13,8 +13,8 @@ public interface GenreRepository extends JpaRepository<Genre, Long> {
 
     Optional<Genre> findByName(String name);
 
-    List<Genre> findByNameContainingIgnoreCase(String name);
+    Genre findByNameContainingIgnoreCase(String name);
 
 
-    List<Genre> findByIdIn(List<Long> ids);
+    Genre findByIdIn(List<Long> ids);
 }

@@ -15,13 +15,13 @@ public class Genre {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToMany(mappedBy = "genres")
+    @OneToMany(mappedBy = "genre")
     private List<Music> musicList = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "genres")
+    @OneToMany(mappedBy = "genre")
     private List<Pod> podList = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "genres")
+    @OneToMany(mappedBy = "genre")
     private List<Video> videoList = new ArrayList<>();
 
     public Genre() {
