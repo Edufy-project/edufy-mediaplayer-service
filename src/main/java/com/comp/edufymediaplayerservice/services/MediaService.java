@@ -4,6 +4,8 @@ import com.comp.edufymediaplayerservice.entities.*;
 import com.comp.edufymediaplayerservice.repositories.*;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -151,6 +153,15 @@ public class MediaService {
         }
 
         throw new RuntimeException("No artist with the name '" + artistName + "' was found.");
+    }
+
+    public List<String> getValidMediaTypes() {
+        List<String> mediaTypes = Arrays.asList(
+                "music",
+                "video",
+                "pod"
+        );
+        return mediaTypes;
     }
 
 }
