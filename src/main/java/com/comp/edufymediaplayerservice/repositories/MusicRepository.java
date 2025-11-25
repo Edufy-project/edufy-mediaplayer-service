@@ -15,7 +15,7 @@ import java.util.List;
 public interface MusicRepository extends JpaRepository<Music, Long> {
 
 
-    @Query("SELECT m FROM Music m JOIN m.artists a WHERE a.id = :artistId")
+    @Query("SELECT m FROM Music m JOIN m.artist a WHERE a.id = :artistId")
     List<Music> findByArtistId(@Param("artistId") Long artistId);
 
 
@@ -47,6 +47,6 @@ public interface MusicRepository extends JpaRepository<Music, Long> {
     List<Music> findByGenreIds(@Param("genreIds") List<Long> genreIds);
 
 
-    @Query("SELECT DISTINCT m FROM Music m JOIN m.artists a JOIN m.genre g WHERE a.id = :artistId AND g.id = :genreId")
+    @Query("SELECT DISTINCT m FROM Music m JOIN m.artist a JOIN m.genre g WHERE a.id = :artistId AND g.id = :genreId")
     List<Music> findByArtistIdAndGenreId(@Param("artistId") Long artistId, @Param("genreId") Long genreId);
 }

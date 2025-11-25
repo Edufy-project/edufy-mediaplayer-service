@@ -33,13 +33,9 @@ public class Video {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    @ManyToMany
-    @JoinTable(
-            name = "video_artists",
-            joinColumns = @JoinColumn(name = "video_id"),
-            inverseJoinColumns = @JoinColumn(name = "artist_id")
-    )
-    private List<Artist> artists = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "artist_id")
+    private Artist artist;
 
     @ManyToOne
     @JoinColumn(name = "genre_id")
@@ -112,12 +108,12 @@ public class Video {
         this.createdAt = createdAt;
     }
 
-    public List<Artist> getArtists() {
-        return artists;
+    public Artist getArtist() {
+        return artist;
     }
 
-    public void setArtists(List<Artist> artists) {
-        this.artists = artists;
+    public void setArtist(Artist artist) {
+        this.artist = artist;
     }
 
     public Genre getGenre() {
@@ -126,16 +122,5 @@ public class Video {
 
     public void setGenre(Genre genre) {
         this.genre = genre;
-    }
-
-    // Helper methods
-    public void addArtist(Artist artist) {
-        this.artists.add(artist);
-        artist.getVideoList().add(this);
-    }
-
-    public void removeArtist(Artist artist) {
-        this.artists.remove(artist);
-        artist.getVideoList().remove(this);
     }
 }

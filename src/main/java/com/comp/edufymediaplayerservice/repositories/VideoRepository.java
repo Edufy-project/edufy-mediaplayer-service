@@ -15,7 +15,7 @@ import java.util.List;
 public interface VideoRepository extends JpaRepository<Video, Long> {
 
 
-    @Query("SELECT v FROM Video v JOIN v.artists a WHERE a.id = :artistId")
+    @Query("SELECT v FROM Video v JOIN v.artist a WHERE a.id = :artistId")
     List<Video> findByArtistId(@Param("artistId") Long artistId);
 
 
@@ -47,6 +47,6 @@ public interface VideoRepository extends JpaRepository<Video, Long> {
     List<Video> findByGenreIds(@Param("genreIds") List<Long> genreIds);
 
 
-    @Query("SELECT DISTINCT v FROM Video v JOIN v.artists a JOIN v.genre g WHERE a.id = :artistId AND g.id = :genreId")
+    @Query("SELECT DISTINCT v FROM Video v JOIN v.artist a JOIN v.genre g WHERE a.id = :artistId AND g.id = :genreId")
     List<Video> findByArtistIdAndGenreId(@Param("artistId") Long artistId, @Param("genreId") Long genreId);
 }

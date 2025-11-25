@@ -1,10 +1,6 @@
 package com.comp.edufymediaplayerservice.dto;
 
-import com.comp.edufymediaplayerservice.entities.Genre;
-import com.comp.edufymediaplayerservice.entities.Artist;
-import com.comp.edufymediaplayerservice.entities.Music;
-import com.comp.edufymediaplayerservice.entities.Video;
-import com.comp.edufymediaplayerservice.entities.Pod;
+import com.comp.edufymediaplayerservice.entities.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,7 +10,7 @@ public class MediaMapper {
     // Helper-metod för gemensamma fält
     private static MediaDTO mapCommonFields(Long id,String title, java.time.LocalDate releaseDate, String streamUrl,
                                             Integer albumOrder, java.time.LocalDateTime createdAt, String albumTitle,
-                                            List<Artist> artists, Genre genre, String type ) {
+                                            Artist artist, Genre genre, String type ) {
         MediaDTO dto = new MediaDTO();
         dto.setId(id);
         dto.setTitle(title);
@@ -24,9 +20,7 @@ public class MediaMapper {
         dto.setCreatedAt(createdAt);
         dto.setAlbumTitle(albumTitle);
         dto.setType(type);
-        dto.setArtistNames(artists.stream()
-                .map(Artist::getName)
-                .collect(Collectors.toList()));
+        dto.setArtistName(artist.getName());
         dto.setGenreName(genre.getName());
 
         return dto;
@@ -42,7 +36,7 @@ public class MediaMapper {
                 music.getAlbumOrder(),
                 music.getCreatedAt(),
                 music.getAlbum() != null ? music.getAlbum().getTitle() : null,
-                music.getArtists(),
+                music.getArtist(),
                 music.getGenre(),
                 "MUSIC"
         );
@@ -57,8 +51,8 @@ public class MediaMapper {
                 pod.getStreamUrl(),
                 pod.getAlbumOrder(),
                 pod.getCreatedAt(),
-                pod.getAlbum() != null ? pod.getAlbum().getTitle() : null,
-                pod.getArtists(),
+                null,
+                pod.getArtist(),
                 pod.getGenre(),
                 "POD"
         );
@@ -73,8 +67,8 @@ public class MediaMapper {
                 video.getStreamUrl(),
                 video.getAlbumOrder(),
                 video.getCreatedAt(),
-                video.getAlbum() != null ? video.getAlbum().getTitle() : null,
-                video.getArtists(),
+                null,
+                video.getArtist(),
                 video.getGenre(),
                 "VIDEO"
         );

@@ -38,6 +38,12 @@ public class MediaService {
                     .map(music -> new MediaDTO(
                             music.getId(),
                             music.getTitle(),
+                            music.getReleaseDate(),
+                            music.getStreamUrl(),
+                            music.getAlbumOrder(),
+                            music.getCreatedAt(),
+                            music.getAlbum().getTitle(),
+                            music.getArtist().getName(),
                             music.getGenre().getName()
                     )).toList();
         } else if (mediaType.equalsIgnoreCase("pod")) {
@@ -45,6 +51,12 @@ public class MediaService {
                     .map(pod -> new MediaDTO(
                             pod.getId(),
                             pod.getTitle(),
+                            pod.getReleaseDate(),
+                            pod.getStreamUrl(),
+                            pod.getAlbumOrder(),
+                            pod.getCreatedAt(),
+                            null,
+                            pod.getArtist().getName(),
                             pod.getGenre().getName()
                     )).toList();
         } else if (mediaType.equalsIgnoreCase("video")) {
@@ -52,6 +64,12 @@ public class MediaService {
                     .map(video -> new MediaDTO(
                             video.getId(),
                             video.getTitle(),
+                            video.getReleaseDate(),
+                            video.getStreamUrl(),
+                            video.getAlbumOrder(),
+                            video.getCreatedAt(),
+                            null,
+                            video.getArtist().getName(),
                             video.getGenre().getName()
                     )).toList();
         } else {
@@ -94,6 +112,12 @@ public class MediaService {
                     .map(music -> new MediaDTO(
                             music.getId(),
                             music.getTitle(),
+                            music.getReleaseDate(),
+                            music.getStreamUrl(),
+                            music.getAlbumOrder(),
+                            music.getCreatedAt(),
+                            music.getAlbum().getTitle(),
+                            music.getArtist().getName(),
                             music.getGenre().getName()
                     ))
                     .toList();
@@ -102,6 +126,12 @@ public class MediaService {
                     .map(pod -> new MediaDTO(
                             pod.getId(),
                             pod.getTitle(),
+                            pod.getReleaseDate(),
+                            pod.getStreamUrl(),
+                            pod.getAlbumOrder(),
+                            pod.getCreatedAt(),
+                            null,
+                            pod.getArtist().getName(),
                             pod.getGenre().getName()
                     ))
                     .toList();
@@ -110,6 +140,12 @@ public class MediaService {
                     .map(video -> new MediaDTO(
                             video.getId(),
                             video.getTitle(),
+                            video.getReleaseDate(),
+                            video.getStreamUrl(),
+                            video.getAlbumOrder(),
+                            video.getCreatedAt(),
+                            null,
+                            video.getArtist().getName(),
                             video.getGenre().getName()
                     ))
                     .toList();

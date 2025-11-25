@@ -1,5 +1,6 @@
 package com.comp.edufymediaplayerservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,17 +22,19 @@ public class Artist {
     @Column(name = "image_url")
     private String imageUrl;
 
-    @ManyToMany(mappedBy = "artists")
+    @JsonIgnoreProperties("artist")
+    @OneToMany(mappedBy = "artist")
     private List<Music> musicList = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "artists")
+    @JsonIgnoreProperties("artist")
+    @OneToMany(mappedBy = "artist")
     private List<Pod> podList = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "artists")
+    @JsonIgnoreProperties("artist")
+    @OneToMany(mappedBy = "artist")
     private List<Video> videoList = new ArrayList<>();
 
-    public Artist() {
-    }
+    public Artist() {}
 
     public Artist(String name) {
         this.name = name;

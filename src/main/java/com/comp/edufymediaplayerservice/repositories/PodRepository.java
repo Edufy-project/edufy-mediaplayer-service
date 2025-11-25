@@ -15,7 +15,7 @@ import java.util.List;
 public interface PodRepository extends JpaRepository<Pod, Long> {
 
 
-    @Query("SELECT p FROM Pod p JOIN p.artists a WHERE a.id = :artistId")
+    @Query("SELECT p FROM Pod p JOIN p.artist a WHERE a.id = :artistId")
     List<Pod> findByArtistId(@Param("artistId") Long artistId);
 
 
@@ -47,6 +47,6 @@ public interface PodRepository extends JpaRepository<Pod, Long> {
     List<Pod> findByGenreIds(@Param("genreIds") List<Long> genreIds);
 
 
-    @Query("SELECT DISTINCT p FROM Pod p JOIN p.artists a JOIN p.genre g WHERE a.id = :artistId AND g.id = :genreId")
+    @Query("SELECT DISTINCT p FROM Pod p JOIN p.artist a JOIN p.genre g WHERE a.id = :artistId AND g.id = :genreId")
     List<Pod> findByArtistIdAndGenreId(@Param("artistId") Long artistId, @Param("genreId") Long genreId);
 }

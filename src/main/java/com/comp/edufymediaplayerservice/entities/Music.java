@@ -35,14 +35,12 @@ public class Music {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    @ManyToMany
-    @JoinTable(
-            name = "music_artists",
-            joinColumns = @JoinColumn(name = "music_id"),
-            inverseJoinColumns = @JoinColumn(name = "artist_id")
-    )
-    private List<Artist> artists = new ArrayList<>();
+    @JsonIgnoreProperties({"musicList", "podList", "videoList"})
+    @ManyToOne
+    @JoinColumn(name = "artist_id")
+    private Artist artist;
 
+    @JsonIgnoreProperties({"musicList", "podList", "videoList"})
     @ManyToOne
     @JoinColumn(name = "genre_id")
     private Genre genre;
@@ -114,12 +112,12 @@ public class Music {
         this.createdAt = createdAt;
     }
 
-    public List<Artist> getArtists() {
-        return artists;
+    public Artist getArtist() {
+        return artist;
     }
 
-    public void setArtists(List<Artist> artists) {
-        this.artists = artists;
+    public void setArtist(Artist artist) {
+        this.artist = artist;
     }
 
     public Genre getGenre() {
@@ -128,16 +126,5 @@ public class Music {
 
     public void setGenre(Genre genre) {
         this.genre = genre;
-    }
-
-    // Helper methods
-    public void addArtist(Artist artist) {
-        this.artists.add(artist);
-        artist.getMusicList().add(this);
-    }
-
-    public void removeArtist(Artist artist) {
-        this.artists.remove(artist);
-        artist.getMusicList().remove(this);
     }
 }

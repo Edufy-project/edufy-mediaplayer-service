@@ -1,8 +1,10 @@
 package com.comp.edufymediaplayerservice.dto;
 
+import com.comp.edufymediaplayerservice.entities.Album;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class MediaDTO {
 
@@ -14,13 +16,19 @@ public class MediaDTO {
     private Integer albumOrder;
     private LocalDateTime createdAt;
     private String albumTitle;
-    private List<String> artistNames;
+    private String artistName;
     private String genreName;
 
     public MediaDTO() {}
-    public MediaDTO(Long id, String title, String genreName) {
+    public MediaDTO(Long id, String title, LocalDate releaseDate, String streamUrl, Integer albumOrder, LocalDateTime createdAt, String albumTitle, String artistName, String genreName) {
         this.id = id;
         this.title = title;
+        this.releaseDate = releaseDate;
+        this.streamUrl = streamUrl;
+        this.albumOrder = albumOrder;
+        this.createdAt = createdAt;
+        this.albumTitle = albumTitle;
+        this.artistName = artistName;
         this.genreName = genreName;
     }
 
@@ -88,12 +96,12 @@ public class MediaDTO {
         this.albumTitle = albumTitle;
     }
 
-    public List<String> getArtistNames() {
-        return artistNames;
+    public String getArtistName() {
+        return artistName;
     }
 
-    public void setArtistNames(List<String> artistNames) {
-        this.artistNames = artistNames;
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
     }
 
     public String getGenreName() {
