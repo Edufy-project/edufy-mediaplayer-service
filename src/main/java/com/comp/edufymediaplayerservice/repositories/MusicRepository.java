@@ -1,7 +1,7 @@
-package com.comp.edufymediaplayerservice.repository;
+package com.comp.edufymediaplayerservice.repositories;
 
-import com.comp.edufymediaplayerservice.entity.Album;
-import com.comp.edufymediaplayerservice.entity.Music;
+import com.comp.edufymediaplayerservice.entities.Music;
+import com.comp.edufymediaplayerservice.entities.Album;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -21,6 +21,7 @@ public interface MusicRepository extends JpaRepository<Music, Long> {
     @Query("SELECT m FROM Music m JOIN m.genres g WHERE g.id = :genreId")
     List<Music> findByGenreId(@Param("genreId") Long genreId);
 
+    List<Music> findAllByGenreIgnoreCase(String genre);
 
     List<Music> findByAlbumOrderByAlbumOrderAsc(Album album);
 

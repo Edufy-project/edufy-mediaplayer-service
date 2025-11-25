@@ -1,4 +1,5 @@
-package com.comp.edufymediaplayerservice.entity;
+package com.comp.edufymediaplayerservice.entities;
+
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -7,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "music")
-public class Music {
+@Table(name = "pods")
+public class Pod {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +23,9 @@ public class Music {
 
     @Column(name = "stream_url", nullable = false)
     private String streamUrl;
+
+    @Column
+    private String genre;
 
     @ManyToOne
     @JoinColumn(name = "album_id")
@@ -38,33 +42,33 @@ public class Music {
 
     @ManyToMany
     @JoinTable(
-            name = "music_artists",
-            joinColumns = @JoinColumn(name = "music_id"),
+            name = "pod_artists",
+            joinColumns = @JoinColumn(name = "pod_id"),
             inverseJoinColumns = @JoinColumn(name = "artist_id")
     )
     private List<Artist> artists = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
-            name = "music_genres",
-            joinColumns = @JoinColumn(name = "music_id"),
+            name = "pod_genres",
+            joinColumns = @JoinColumn(name = "pod_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
     private List<Genre> genres = new ArrayList<>();
 
-    public Music() {
+    public Pod() {
         this.createdAt = LocalDateTime.now();
         this.thumbsUp = 0;
     }
 
-    public Music(String title, String streamUrl) {
+    public Pod(String title, String streamUrl) {
         this.title = title;
         this.streamUrl = streamUrl;
         this.createdAt = LocalDateTime.now();
         this.thumbsUp = 0;
     }
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }
@@ -95,6 +99,14 @@ public class Music {
 
     public void setStreamUrl(String streamUrl) {
         this.streamUrl = streamUrl;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public Album getAlbum() {
@@ -158,21 +170,21 @@ public class Music {
     // Helper methods
     public void addArtist(Artist artist) {
         this.artists.add(artist);
-        artist.getMusicList().add(this);
+        artist.getPodList().add(this);
     }
 
     public void removeArtist(Artist artist) {
         this.artists.remove(artist);
-        artist.getMusicList().remove(this);
+        artist.getPodList().remove(this);
     }
 
     public void addGenre(Genre genre) {
         this.genres.add(genre);
-        genre.getMusicList().add(this);
+        genre.getPodList().add(this);
     }
 
     public void removeGenre(Genre genre) {
         this.genres.remove(genre);
-        genre.getMusicList().remove(this);
+        genre.getPodList().remove(this);
     }
 }

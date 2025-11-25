@@ -1,4 +1,5 @@
-package com.comp.edufymediaplayerservice.entity;
+package com.comp.edufymediaplayerservice.entities;
+
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -22,6 +23,9 @@ public class Video {
 
     @Column(name = "stream_url", nullable = false)
     private String streamUrl;
+
+    @Column
+    private String genre;
 
     @ManyToOne
     @JoinColumn(name = "album_id")
@@ -95,6 +99,14 @@ public class Video {
 
     public void setStreamUrl(String streamUrl) {
         this.streamUrl = streamUrl;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public Album getAlbum() {

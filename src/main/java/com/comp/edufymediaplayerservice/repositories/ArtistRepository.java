@@ -1,7 +1,7 @@
-package com.comp.edufymediaplayerservice.repository;
+package com.comp.edufymediaplayerservice.repositories;
 
+import com.comp.edufymediaplayerservice.entities.Artist;
 
-import com.comp.edufymediaplayerservice.entity.Artist;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,9 +11,7 @@ import java.util.Optional;
 @Repository
 public interface ArtistRepository extends JpaRepository<Artist, Long> {
 
-
-    Optional<Artist> findByName(String name);
-
-
+    Optional<Artist> findByNameIgnoreCase(String name);
     List<Artist> findByNameContainingIgnoreCase(String name);
+
 }

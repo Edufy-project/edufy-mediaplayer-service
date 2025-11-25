@@ -1,5 +1,7 @@
-package com.comp.edufymediaplayerservice.entity;
+package com.comp.edufymediaplayerservice.entities;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -7,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "pods")
-public class Pod {
+@Table(name = "music")
+public class Music {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +25,10 @@ public class Pod {
     @Column(name = "stream_url", nullable = false)
     private String streamUrl;
 
+    @Column
+    private String genre;
+
+    @JsonIgnoreProperties({"musicList", "podList", "videoList"})
     @ManyToOne
     @JoinColumn(name = "album_id")
     private Album album;
@@ -38,33 +44,33 @@ public class Pod {
 
     @ManyToMany
     @JoinTable(
-            name = "pod_artists",
-            joinColumns = @JoinColumn(name = "pod_id"),
+            name = "music_artists",
+            joinColumns = @JoinColumn(name = "music_id"),
             inverseJoinColumns = @JoinColumn(name = "artist_id")
     )
     private List<Artist> artists = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
-            name = "pod_genres",
-            joinColumns = @JoinColumn(name = "pod_id"),
+            name = "music_genres",
+            joinColumns = @JoinColumn(name = "music_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
     private List<Genre> genres = new ArrayList<>();
 
-    public Pod() {
+    public Music() {
         this.createdAt = LocalDateTime.now();
         this.thumbsUp = 0;
     }
 
-    public Pod(String title, String streamUrl) {
+    public Music(String title, String streamUrl) {
         this.title = title;
         this.streamUrl = streamUrl;
         this.createdAt = LocalDateTime.now();
         this.thumbsUp = 0;
     }
 
-
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -95,6 +101,14 @@ public class Pod {
 
     public void setStreamUrl(String streamUrl) {
         this.streamUrl = streamUrl;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public Album getAlbum() {
@@ -158,21 +172,21 @@ public class Pod {
     // Helper methods
     public void addArtist(Artist artist) {
         this.artists.add(artist);
-        artist.getPodList().add(this);
+        artist.getMusicList().add(this);
     }
 
     public void removeArtist(Artist artist) {
         this.artists.remove(artist);
-        artist.getPodList().remove(this);
+        artist.getMusicList().remove(this);
     }
 
     public void addGenre(Genre genre) {
         this.genres.add(genre);
-        genre.getPodList().add(this);
+        genre.getMusicList().add(this);
     }
 
     public void removeGenre(Genre genre) {
         this.genres.remove(genre);
-        genre.getPodList().remove(this);
+        genre.getMusicList().remove(this);
     }
 }

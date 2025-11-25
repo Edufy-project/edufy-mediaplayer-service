@@ -1,7 +1,10 @@
-package com.comp.edufymediaplayerservice.repository;
+package com.comp.edufymediaplayerservice.repositories;
 
-import com.comp.edufymediaplayerservice.entity.Album;
-import com.comp.edufymediaplayerservice.entity.Pod;
+
+
+
+import com.comp.edufymediaplayerservice.entities.Album;
+import com.comp.edufymediaplayerservice.entities.Pod;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -21,6 +24,7 @@ public interface PodRepository extends JpaRepository<Pod, Long> {
     @Query("SELECT p FROM Pod p JOIN p.genres g WHERE g.id = :genreId")
     List<Pod> findByGenreId(@Param("genreId") Long genreId);
 
+    List<Pod> findAllByGenreIgnoreCase(String genre);
 
     List<Pod> findByAlbumOrderByAlbumOrderAsc(Album album);
 
