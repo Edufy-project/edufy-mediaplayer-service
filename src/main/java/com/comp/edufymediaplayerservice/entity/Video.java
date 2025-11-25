@@ -33,6 +33,9 @@ public class Video {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
+    @Column(name = "thumbs_up", nullable = false)
+    private int thumbsUp = 0;
+
     @ManyToMany
     @JoinTable(
             name = "video_artists",
@@ -51,12 +54,14 @@ public class Video {
 
     public Video() {
         this.createdAt = LocalDateTime.now();
+        this.thumbsUp = 0;
     }
 
     public Video(String title, String streamUrl) {
         this.title = title;
         this.streamUrl = streamUrl;
         this.createdAt = LocalDateTime.now();
+        this.thumbsUp = 0;
     }
 
 
@@ -114,6 +119,24 @@ public class Video {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public int getThumbsUp() {
+        return thumbsUp;
+    }
+
+    public void setThumbsUp(int thumbsUp) {
+        this.thumbsUp = thumbsUp;
+    }
+
+    public void incrementThumbsUp() {
+        this.thumbsUp++;
+    }
+
+    public void decrementThumbsUp() {
+        if (this.thumbsUp > 0) {
+            this.thumbsUp--;
+        }
     }
 
     public List<Artist> getArtists() {
