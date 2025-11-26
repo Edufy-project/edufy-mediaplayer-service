@@ -36,7 +36,7 @@ public class Music {
     @Column(name = "album_order")
     private Integer albumOrder;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @Column(name = "thumbs_up")
