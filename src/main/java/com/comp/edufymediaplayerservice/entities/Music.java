@@ -39,7 +39,7 @@ public class Music {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "thumbs_up", nullable = false)
+    @Column(name = "thumbs_up")
     private int thumbsUp = 0;
 
     @ManyToMany
