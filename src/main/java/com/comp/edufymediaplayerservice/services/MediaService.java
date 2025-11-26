@@ -5,7 +5,6 @@ import com.comp.edufymediaplayerservice.entities.*;
 import com.comp.edufymediaplayerservice.repositories.*;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -156,7 +155,6 @@ public class MediaService {
     }
 
     public Object getMediaByName(String mediaName) {
-
         if (mediaName.contains(" ")) {
             throw new RuntimeException("Url can't contain spaces.");
         }
@@ -220,6 +218,39 @@ public class MediaService {
         }
 
         throw new RuntimeException("No artist with the name '" + artistName + "' was found.");
+    }
+
+    public void likeMedia(String mediaType, Long mediaId) {
+        if (mediaType.equalsIgnoreCase("music")) {
+            Optional<Music> optional = musicRepository.findById(mediaId);
+            if (optional.isPresent()) {
+                Music music = optional.get();
+                music.setThumbsUp(music.getThumbsUp() + 1);
+                musicRepository.save(music);
+            } else {
+                throw new RuntimeException("Music with id " + mediaId + " does not exist.");
+            }
+        } else if (mediaType.equalsIgnoreCase("pod")) {
+            Optional<Pod> optional = podRepository.findById(mediaId);
+            if (optional.isPresent()) {
+                Pod pod = optional.get();
+                pod.setThumbsUp(pod.getThumbsUp() + 1);
+                podRepository.save(pod);
+            } else {
+                throw new RuntimeException("Music with id " + mediaId + " does not exist.");
+            }
+        } else if (mediaType.equalsIgnoreCase("video")) {
+            Optional<Video> optional = videoRepository.findById(mediaId);
+            if (optional.isPresent()) {
+                Video video = optional.get();
+                video.setThumbsUp(video.getThumbsUp() + 1);
+                videoRepository.save(video);
+            } else {
+                throw new RuntimeException("Music with id " + mediaId + " does not exist.");
+            }
+        } else {
+            throw new RuntimeException("Invalid type. Valid types are: music, pod, video");
+        }
     }
 
     public List<String> getValidMediaTypes() {

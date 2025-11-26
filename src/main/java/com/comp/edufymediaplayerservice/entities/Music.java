@@ -2,6 +2,8 @@ package com.comp.edufymediaplayerservice.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -34,6 +36,10 @@ public class Music {
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
+
+    @Column(name = "thumbs_up")
+    @ColumnDefault("0")
+    private int thumbsUp;
 
     @JsonIgnoreProperties({"musicList", "podList", "videoList"})
     @ManyToOne
@@ -110,6 +116,14 @@ public class Music {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public int getThumbsUp() {
+        return thumbsUp;
+    }
+
+    public void setThumbsUp(int thumbsUp) {
+        this.thumbsUp = thumbsUp;
     }
 
     public Artist getArtist() {

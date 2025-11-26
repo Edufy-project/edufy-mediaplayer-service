@@ -1,6 +1,8 @@
 package com.comp.edufymediaplayerservice.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -32,6 +34,10 @@ public class Video {
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
+
+    @Column(name = "thumbs_up")
+    @ColumnDefault("0")
+    private int thumbsUp;
 
     @ManyToOne
     @JoinColumn(name = "artist_id")
@@ -106,6 +112,14 @@ public class Video {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public int getThumbsUp() {
+        return thumbsUp;
+    }
+
+    public void setThumbsUp(int thumbsUp) {
+        this.thumbsUp = thumbsUp;
     }
 
     public Artist getArtist() {

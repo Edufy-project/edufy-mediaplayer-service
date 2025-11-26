@@ -53,9 +53,9 @@ public class MediaController {
         return mediaService.getValidMediaTypes();
     }
 
-    /*@GetMapping("likemedia/{mediaName}/{mediaId}")
+    @GetMapping("likemedia/{mediaType}/{mediaId}")
     public void likeMediaByName(@PathVariable String mediaType, @PathVariable Long mediaId){
-        return mediaService.likeMedia(mediaType, mediaId);
-    }*/
+        mediaService.likeMedia(mediaType, mediaId);
+    }
 
 }
