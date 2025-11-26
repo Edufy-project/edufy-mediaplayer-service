@@ -19,7 +19,7 @@ public class Artist {
     @Column(length = 1000)
     private String bio;
 
-    @Column(name = "image_url")
+    @Column(nullable = false)
     private String imageUrl;
 
     @JsonIgnoreProperties("artist")

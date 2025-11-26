@@ -47,6 +47,9 @@ public class Pod {
     @JoinColumn(name = "genre_id")
     private Genre genre;
 
+    @Column(name = "play_count")
+    private Long playCount = 0L;
+
     public Pod() {
         this.createdAt = LocalDateTime.now();
     }
@@ -136,5 +139,12 @@ public class Pod {
 
     public void setGenre(Genre genre) {
         this.genre = genre;
+    }
+
+    public Long getPlayCount() {
+        return playCount;
+    }
+    public void setPlayCount(Long playCount) {
+        this.playCount = playCount;
     }
 }
