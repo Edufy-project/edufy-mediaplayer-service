@@ -37,6 +37,7 @@ public class MediaService {
                     .map(music -> new MediaDTO(
                             music.getId(),
                             music.getTitle(),
+                            music.getType(),
                             music.getReleaseDate(),
                             music.getStreamUrl(),
                             music.getAlbumOrder(),
@@ -51,6 +52,7 @@ public class MediaService {
                     .map(pod -> new MediaDTO(
                             pod.getId(),
                             pod.getTitle(),
+                            pod.getType(),
                             pod.getReleaseDate(),
                             pod.getStreamUrl(),
                             pod.getAlbumOrder(),
@@ -65,6 +67,7 @@ public class MediaService {
                     .map(video -> new MediaDTO(
                             video.getId(),
                             video.getTitle(),
+                            video.getType(),
                             video.getReleaseDate(),
                             video.getStreamUrl(),
                             video.getAlbumOrder(),
@@ -114,6 +117,7 @@ public class MediaService {
                     .map(music -> new MediaDTO(
                             music.getId(),
                             music.getTitle(),
+                            music.getType(),
                             music.getReleaseDate(),
                             music.getStreamUrl(),
                             music.getAlbumOrder(),
@@ -129,6 +133,7 @@ public class MediaService {
                     .map(pod -> new MediaDTO(
                             pod.getId(),
                             pod.getTitle(),
+                            pod.getType(),
                             pod.getReleaseDate(),
                             pod.getStreamUrl(),
                             pod.getAlbumOrder(),
@@ -144,6 +149,7 @@ public class MediaService {
                     .map(video -> new MediaDTO(
                             video.getId(),
                             video.getTitle(),
+                            video.getType(),
                             video.getReleaseDate(),
                             video.getStreamUrl(),
                             video.getAlbumOrder(),

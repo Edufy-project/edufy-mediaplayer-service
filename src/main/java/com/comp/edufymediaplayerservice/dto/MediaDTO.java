@@ -21,9 +21,10 @@ public class MediaDTO {
     private Long playCount;
 
     public MediaDTO() {}
-    public MediaDTO(Long id, String title, LocalDate releaseDate, String streamUrl, Integer albumOrder, LocalDateTime createdAt, String albumTitle, String artistName, String genreName, Long playCount) {
+    public MediaDTO(Long id, String title, String type, LocalDate releaseDate, String streamUrl, Integer albumOrder, LocalDateTime createdAt, String albumTitle, String artistName, String genreName, Long playCount) {
         this.id = id;
         this.title = title;
+        this.type = type;
         this.releaseDate = releaseDate;
         this.streamUrl = streamUrl;
         this.albumOrder = albumOrder;

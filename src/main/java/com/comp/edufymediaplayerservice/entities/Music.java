@@ -20,6 +20,9 @@ public class Music {
     @Column(nullable = false)
     private String title;
 
+    @Column(nullable = false)
+    private String type;
+
     @Column(name = "release_date")
     private LocalDate releaseDate;
 
@@ -79,6 +82,14 @@ public class Music {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public LocalDate getReleaseDate() {
