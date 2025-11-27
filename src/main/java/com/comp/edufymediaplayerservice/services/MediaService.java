@@ -43,7 +43,8 @@ public class MediaService {
                             music.getCreatedAt(),
                             music.getAlbum().getTitle(),
                             music.getArtist().getName(),
-                            music.getGenre().getName()
+                            music.getGenre().getName(),
+                            music.getPlayCount()
                     )).toList();
         } else if (mediaType.equalsIgnoreCase("pod")) {
             return podRepository.findAll().stream()
@@ -56,7 +57,8 @@ public class MediaService {
                             pod.getCreatedAt(),
                             null,
                             pod.getArtist().getName(),
-                            pod.getGenre().getName()
+                            pod.getGenre().getName(),
+                            pod.getPlayCount()
                     )).toList();
         } else if (mediaType.equalsIgnoreCase("video")) {
             return videoRepository.findAll().stream()
@@ -69,7 +71,8 @@ public class MediaService {
                             video.getCreatedAt(),
                             null,
                             video.getArtist().getName(),
-                            video.getGenre().getName()
+                            video.getGenre().getName(),
+                            video.getPlayCount()
                     )).toList();
         } else {
             throw new RuntimeException("Invalid type. Valid types are: music, pod, video");
@@ -117,7 +120,8 @@ public class MediaService {
                             music.getCreatedAt(),
                             music.getAlbum().getTitle(),
                             music.getArtist().getName(),
-                            music.getGenre().getName()
+                            music.getGenre().getName(),
+                            music.getPlayCount()
                     ))
                     .toList();
         } else if (mediaType.equalsIgnoreCase("pod")) {
@@ -131,7 +135,8 @@ public class MediaService {
                             pod.getCreatedAt(),
                             null,
                             pod.getArtist().getName(),
-                            pod.getGenre().getName()
+                            pod.getGenre().getName(),
+                            pod.getPlayCount()
                     ))
                     .toList();
         } else if (mediaType.equalsIgnoreCase("video")) {
@@ -145,7 +150,8 @@ public class MediaService {
                             video.getCreatedAt(),
                             null,
                             video.getArtist().getName(),
-                            video.getGenre().getName()
+                            video.getGenre().getName(),
+                            video.getPlayCount()
                     ))
                     .toList();
         } else {
